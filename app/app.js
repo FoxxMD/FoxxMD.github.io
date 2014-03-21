@@ -8,17 +8,17 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         $stateProvider
             .state('index', {
-                templateUrl: '../templates/shared/skeleton.html',
+                templateUrl: 'app/templates/shared/skeleton.html',
                 abstract: true,
                 controller: 'cnc'
             })
             .state('home', {
-                templateUrl: '../templates/home.html',
+                templateUrl: 'app/templates/home.html',
                 url: '/',
                 parent: 'index'
             })
             .state('404', {
-                templateUrl: '../templates/shared/404.html',
+                templateUrl: 'app/templates/shared/404.html',
                 url: '/404',
                 parent: 'index'
             });

@@ -1,3 +1,6 @@
-.foxx {
-  width: 100%;
+.foxx a {
+  cursor: pointer;
+}
+.foxx .jumbotron {
+  background-color: #404040;
 }
