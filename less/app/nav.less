@@ -1,0 +1,28 @@
+@import "variables.less";
+
+.foxx{
+  .navbar-default{
+    border: 0px;
+    background-color: @themeLightPrimary;
+    background-image:none;
+    color: @themeText;
+    li, li a, a.navbar-brand {
+      color:@themeText;
+      font-size: 1.1em;
+      &:hover{
+        //color: darken(@themeText,10%);
+      background-color:lighten(@themeLightPrimary,10%);
+      }
+    }
+    li.dropdown a.dropdown-toggle,
+    a.dropdown-toggle:hover{
+      background-color: @themeLightPrimary;
+    }
+      ul.dropdown-menu{
+        background-color: @themeLightPrimary;
+        li a{
+          background-color: lighten(@themeLightPrimary,10%);
+        }
+      }
+  }
+}
