@@ -1,32 +1,41 @@
+/*
+@text-color: rgb(249,239,220);
+@link-color: rgb(3,126,140);
+@link-hover-color: rgb(2,73,89);
+
+@themeBackground: rgb(64,64,64);
+@themeText: rgb(249,239,220);
+@themeDarkPrimary: rgb(3,126,140);
+@themeLightPrimary: rgb(242,76,39);*/
 .foxx .navbar-default {
   border: 0px;
-  background-color: #f24c27;
+  background-color: #e3753c;
   background-image: none;
-  color: #f9efdc;
+  color: #e3dfbb;
 }
 .foxx .navbar-default li,
 .foxx .navbar-default li a,
 .foxx .navbar-default a.navbar-brand {
-  color: #f9efdc;
+  color: #e3dfbb;
   font-size: 1.1em;
+  cursor: default;
 }
 .foxx .navbar-default li:hover,
 .foxx .navbar-default li a:hover,
 .foxx .navbar-default a.navbar-brand:hover {
-  background-color: #f57457;
+  color: #555555;
 }
 .foxx .navbar-default li.dropdown a.dropdown-toggle,
 .foxx .navbar-default a.dropdown-toggle:hover {
-  background-color: #f24c27;
+  background-color: #e3753c;
+  background-image: none;
 }
 .foxx .navbar-default ul.dropdown-menu {
-  background-color: #f24c27;
+  background-color: #e3753c;
 }
 .foxx .navbar-default ul.dropdown-menu li a {
-  background-color: #f57457;
-}
-.foxx a {
-  cursor: pointer;
+  background-color: #e3753c;
+  background-image: none;
 }
 .foxx .jumbotron {
   background-color: #404040;
