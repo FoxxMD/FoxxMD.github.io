@@ -25,7 +25,7 @@ h6 {
 }
 
 .page-header {
-  border-bottom: 1pxpx solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
 }
 
 hr {
@@ -216,7 +216,6 @@ input[type="color"],
 }
 
 .navbar .brand {
-  padding: ;
   font-size: 20px;
   color: #ededed;
 }

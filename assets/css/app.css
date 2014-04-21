@@ -1,26 +1,35 @@
+/*@theme-text-color: rgb(232,213,183);
+@theme-link-color: rgb(252,58,81);
+@theme-link-hover-color: lighten(@theme-link-color,10%);
+
+@themeText: rgb(232,213,183);
+@themeBackground: rgb(14,36,48);
+@themeDarkPrimary: rgb(0,116,142);
+@themeLightPrimary: rgb(252,58,81);
+@themeLightPrimaryAlternate: rgb(248,148,6);*/
 .foxx {
-  background-color: #0e2430;
+  background-color: #53777a;
   color: #e8d5b7;
 }
 .foxx a {
-  color: #fc3a51;
+  color: #e8d5b7;
 }
 .foxx a:hover {
-  color: #04abbe;
+  color: #f4ecde;
 }
 .foxx .jumbotron {
-  background-color: #0e2430;
+  background-color: #53777a;
 }
 .foxx h1,
 .foxx h2,
 .foxx h3,
 .foxx h4,
 .foxx h5 {
-  color: #f89406;
+  color: #e8d5b7;
 }
 .foxx .navbar-default {
   border: 0px;
-  background-color: #fc3a51;
+  background-color: #c02942;
   background-image: none;
   color: #e8d5b7;
 }
@@ -39,7 +48,7 @@
 }
 .foxx .navbar-default li.dropdown a.dropdown-toggle {
   color: #e8d5b7;
-  background-color: #fc3a51;
+  background-color: inherit;
   background-image: none;
 }
 .foxx .navbar-default li.dropdown a.dropdown-toggle:hover {
@@ -50,11 +59,11 @@
   color: #ffffff;
 }
 .foxx .navbar-default ul.dropdown-menu {
-  background-color: #fc3a51;
+  background-color: #c02942;
 }
 .foxx .navbar-default ul.dropdown-menu li a {
   color: #e8d5b7;
-  background-color: #fc3a51;
+  background-color: inherit;
   background-image: none;
 }
 .foxx .navbar-default ul.dropdown-menu li a:hover {

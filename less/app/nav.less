@@ -3,46 +3,46 @@
 .foxx {
   .navbar-default {
     border: 0px;
-    background-color: @themeLightPrimary;
+    background-color: @themeDarkPrimary;
     background-image: none;
-    color: @themeText;
+    color: @theme-text-color;
     li a {
       cursor:default;
-      color: @themeText;
+      color: @theme-text-color;
       &:hover {
-        color: lighten(@themeText, 30%);
+        color: lighten(@theme-text-color, 30%);
       }
     }
     .navbar-brand{
-      color: @themeText;
+      color: @theme-text-color;
       &:hover {
-        color: lighten(@themeText, 30%);
+        color: lighten(@theme-text-color, 30%);
       }
     }
     li.dropdown {
       a.dropdown-toggle {
-        color: @themeText;
-        background-color: @themeLightPrimary;
+        color: @theme-text-color;
+        background-color: inherit;
         background-image: none;
         &:hover {
-          color: lighten(@themeText, 30%);
+          color: lighten(@theme-text-color, 30%);
         }
       }
       &.open,
       &.active {
         a.dropdown-toggle {
-          color: lighten(@themeText, 30%);
+          color: lighten(@theme-text-color, 30%);
         }
       }
     }
     ul.dropdown-menu {
-      background-color: @themeLightPrimary;
+      background-color: @themeDarkPrimary;
       li a {
-        color: @themeText;
-        background-color: @themeLightPrimary;
+        color: @theme-text-color;
+       background-color: inherit;
         background-image: none;
         &:hover {
-          color: lighten(@themeText, 30%);
+          color: lighten(@theme-text-color, 30%);
         }
       }
     }
