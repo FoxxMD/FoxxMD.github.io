@@ -1,32 +1,50 @@
 @import "variables.less";
 
-.foxx{
+.foxx {
   .navbar-default {
     border: 0px;
     background-color: @themeLightPrimary;
-    background-image:none;
+    background-image: none;
     color: @themeText;
-    li, li a, a.navbar-brand {
-      color:@themeText;
-      font-size: 1.1em;
-      cursor: default;
-      &:hover{
-        //color: darken(@themeText,10%);
-        //background-color:lighten(@themeLightPrimary,10%);
-        color: #555555;
+    li a {
+      cursor:default;
+      color: @themeText;
+      &:hover {
+        color: lighten(@themeText, 30%);
       }
     }
-    li.dropdown a.dropdown-toggle,
-    a.dropdown-toggle:hover{
-      background-color: @themeLightPrimary;
-      background-image: none;
+    .navbar-brand{
+      color: @themeText;
+      &:hover {
+        color: lighten(@themeText, 30%);
+      }
     }
-      ul.dropdown-menu{
+    li.dropdown {
+      a.dropdown-toggle {
+        color: @themeText;
         background-color: @themeLightPrimary;
-        li a{
-          background-color: @themeLightPrimary;
-          background-image:none;
+        background-image: none;
+        &:hover {
+          color: lighten(@themeText, 30%);
         }
       }
+      &.open,
+      &.active {
+        a.dropdown-toggle {
+          color: lighten(@themeText, 30%);
+        }
+      }
+    }
+    ul.dropdown-menu {
+      background-color: @themeLightPrimary;
+      li a {
+        color: @themeText;
+        background-color: @themeLightPrimary;
+        background-image: none;
+        &:hover {
+          color: lighten(@themeText, 30%);
+        }
+      }
+    }
   }
 }

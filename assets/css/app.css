@@ -1,42 +1,62 @@
-/*
-@text-color: rgb(249,239,220);
-@link-color: rgb(3,126,140);
-@link-hover-color: rgb(2,73,89);
-
-@themeBackground: rgb(64,64,64);
-@themeText: rgb(249,239,220);
-@themeDarkPrimary: rgb(3,126,140);
-@themeLightPrimary: rgb(242,76,39);*/
-.foxx .navbar-default {
-  border: 0px;
-  background-color: #e3753c;
-  background-image: none;
-  color: #e3dfbb;
+.foxx {
+  background-color: #0e2430;
+  color: #e8d5b7;
 }
-.foxx .navbar-default li,
-.foxx .navbar-default li a,
-.foxx .navbar-default a.navbar-brand {
-  color: #e3dfbb;
-  font-size: 1.1em;
-  cursor: default;
+.foxx a {
+  color: #fc3a51;
 }
-.foxx .navbar-default li:hover,
-.foxx .navbar-default li a:hover,
-.foxx .navbar-default a.navbar-brand:hover {
-  color: #555555;
-}
-.foxx .navbar-default li.dropdown a.dropdown-toggle,
-.foxx .navbar-default a.dropdown-toggle:hover {
-  background-color: #e3753c;
-  background-image: none;
-}
-.foxx .navbar-default ul.dropdown-menu {
-  background-color: #e3753c;
-}
-.foxx .navbar-default ul.dropdown-menu li a {
-  background-color: #e3753c;
-  background-image: none;
+.foxx a:hover {
+  color: #04abbe;
 }
 .foxx .jumbotron {
-  background-color: #404040;
+  background-color: #0e2430;
+}
+.foxx h1,
+.foxx h2,
+.foxx h3,
+.foxx h4,
+.foxx h5 {
+  color: #f89406;
+}
+.foxx .navbar-default {
+  border: 0px;
+  background-color: #fc3a51;
+  background-image: none;
+  color: #e8d5b7;
+}
+.foxx .navbar-default li a {
+  cursor: default;
+  color: #e8d5b7;
+}
+.foxx .navbar-default li a:hover {
+  color: #ffffff;
+}
+.foxx .navbar-default .navbar-brand {
+  color: #e8d5b7;
+}
+.foxx .navbar-default .navbar-brand:hover {
+  color: #ffffff;
+}
+.foxx .navbar-default li.dropdown a.dropdown-toggle {
+  color: #e8d5b7;
+  background-color: #fc3a51;
+  background-image: none;
+}
+.foxx .navbar-default li.dropdown a.dropdown-toggle:hover {
+  color: #ffffff;
+}
+.foxx .navbar-default li.dropdown.open a.dropdown-toggle,
+.foxx .navbar-default li.dropdown.active a.dropdown-toggle {
+  color: #ffffff;
+}
+.foxx .navbar-default ul.dropdown-menu {
+  background-color: #fc3a51;
+}
+.foxx .navbar-default ul.dropdown-menu li a {
+  color: #e8d5b7;
+  background-color: #fc3a51;
+  background-image: none;
+}
+.foxx .navbar-default ul.dropdown-menu li a:hover {
+  color: #ffffff;
 }
