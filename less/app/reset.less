@@ -18,3 +18,22 @@
     color:@theme-text-color;
   }
 }
+
+.triangle{
+  color:@triangle-text-color;
+  .jumbotron{
+    background-color:transparent;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5{
+    color:@triangle-text-color;
+  }
+}
+.section{
+  .triangle &{
+    background-color: transparent;
+  }
+}

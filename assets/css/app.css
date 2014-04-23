@@ -26,18 +26,73 @@
 .foxx h5 {
   color: #eee0ca;
 }
-.foxx .navbar-default {
-  border: 0px;
+.triangle {
+  color: #000000;
+}
+.triangle .jumbotron {
+  background-color: transparent;
+}
+.triangle h1,
+.triangle h2,
+.triangle h3,
+.triangle h4,
+.triangle h5 {
+  color: #000000;
+}
+.triangle .section {
+  background-color: transparent;
+}
+.foxx ul.dropdown-menu {
   background-color: #c02942;
+}
+.triangle ul.dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+ul.dropdown-menu li a,
+.navbar-default li a {
+  background-color: inherit;
   background-image: none;
-  color: #eee0ca;
-}
-.foxx .navbar-default li a {
   cursor: default;
+}
+.foxx ul.dropdown-menu li a,
+.foxx .navbar-default li a {
   color: #eee0ca;
 }
-.foxx .navbar-default li a:hover {
+.triangle ul.dropdown-menu li a,
+.triangle .navbar-default li a {
+  color: #000000;
+}
+ul.dropdown-menu li a:hover,
+.navbar-default li a:hover,
+ul.dropdown-menu li a.active,
+.navbar-default li a.active {
+  background-image: none;
+}
+.foxx ul.dropdown-menu li a:hover,
+.foxx .navbar-default li a:hover,
+.foxx ul.dropdown-menu li a.active,
+.foxx .navbar-default li a.active {
   color: #ffffff;
+  background-color: #c02942;
+}
+.triangle ul.dropdown-menu li a:hover,
+.triangle .navbar-default li a:hover,
+.triangle ul.dropdown-menu li a.active,
+.triangle .navbar-default li a.active {
+  color: #000000;
+  background-color: transparent;
+}
+.navbar-default {
+  border: 0px;
+  background-image: none;
+}
+.foxx .navbar-default {
+  background-color: #c02942;
+  color: #eee0ca;
+}
+.triangle .navbar-default {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #000000;
 }
 .foxx .navbar-default .navbar-brand {
   color: #eee0ca;
@@ -45,26 +100,28 @@
 .foxx .navbar-default .navbar-brand:hover {
   color: #ffffff;
 }
+.triangle .navbar-default .navbar-brand {
+  color: #000000;
+}
 .foxx .navbar-default li.dropdown a.dropdown-toggle {
   color: #eee0ca;
-  background-color: inherit;
-  background-image: none;
 }
 .foxx .navbar-default li.dropdown a.dropdown-toggle:hover {
   color: #ffffff;
+}
+.triangle .navbar-default li.dropdown a.dropdown-toggle {
+  color: #000000;
+}
+.navbar-default li.dropdown.open a.dropdown-toggle,
+.navbar-default li.dropdown.active a.dropdown-toggle {
+  background-color: inherit;
+  background-image: none;
 }
 .foxx .navbar-default li.dropdown.open a.dropdown-toggle,
 .foxx .navbar-default li.dropdown.active a.dropdown-toggle {
   color: #ffffff;
 }
-.foxx .navbar-default ul.dropdown-menu {
-  background-color: #c02942;
-}
-.foxx .navbar-default ul.dropdown-menu li a {
-  color: #eee0ca;
-  background-color: inherit;
-  background-image: none;
-}
-.foxx .navbar-default ul.dropdown-menu li a:hover {
-  color: #ffffff;
+.triangle .navbar-default li.dropdown.open a.dropdown-toggle,
+.triangle .navbar-default li.dropdown.active a.dropdown-toggle {
+  color: #000000;
 }

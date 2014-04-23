@@ -1,50 +1,107 @@
 @import "variables.less";
 
-.foxx {
-  .navbar-default {
-    border: 0px;
+ul.dropdown-menu {
+  //Style-specific
+  .foxx & {
     background-color: @themeDarkPrimary;
-    background-image: none;
-    color: @theme-text-color;
-    li a {
-      cursor:default;
-      color: @theme-text-color;
-      &:hover {
-        color: lighten(@theme-text-color, 30%);
-      }
-    }
-    .navbar-brand{
-      color: @theme-text-color;
-      &:hover {
-        color: lighten(@theme-text-color, 30%);
-      }
-    }
-    li.dropdown {
-      a.dropdown-toggle {
+  }
+  .triangle & {
+    background-color: @triangle-Background;
+  }
+}
+
+li {
+  a {
+    ul.dropdown-menu &,
+    .navbar-default & {
+      background-color: inherit;
+      background-image: none;
+      cursor: default;
+
+      //Style-specific
+      .foxx & {
         color: @theme-text-color;
-        background-color: inherit;
-        background-image: none;
-        &:hover {
-          color: lighten(@theme-text-color, 30%);
-        }
       }
-      &.open,
+      .triangle &{
+        color: @triangle-text-color;
+      }
+
+      &:hover,
       &.active {
-        a.dropdown-toggle {
-          color: lighten(@theme-text-color, 30%);
-        }
-      }
-    }
-    ul.dropdown-menu {
-      background-color: @themeDarkPrimary;
-      li a {
-        color: @theme-text-color;
-       background-color: inherit;
         background-image: none;
-        &:hover {
+
+        //Style-specific
+        .foxx & {
           color: lighten(@theme-text-color, 30%);
+          background-color: @themeDarkPrimary;
+        }
+        .triangle & {
+          color: darken(@triangle-text-color,5%);
+          background-color: transparent;
         }
       }
     }
   }
+}
+
+.navbar-default {
+  border: 0px;
+  background-image:none;
+
+  //Style-specific
+  .foxx & {
+    background-color: @themeDarkPrimary;
+    color: @theme-text-color;
+  }
+  .triangle & {
+    background-color: @triangle-Background;
+    color: @triangle-text-color;
+  }
+
+  .navbar-brand {
+
+    //Style-specific
+    .foxx & {
+      color: @theme-text-color;
+      &:hover {
+        color: lighten(@theme-text-color, 30%);
+      }
+    }
+    .triangle & {
+      color: @triangle-text-color;
+    }
+  }
+  li.dropdown {
+    a.dropdown-toggle {
+
+      //Style-specific
+      .foxx & {
+        color: @theme-text-color;
+        &:hover {
+          color: lighten(@theme-text-color, 30%);
+        }
+      }
+      .triangle &{
+        color: @triangle-text-color;
+      }
+
+    }
+    &.open,
+    &.active {
+      a.dropdown-toggle {
+        background-color: inherit;
+        background-image: none;
+
+        //Style-specific
+        .foxx & {
+          color: lighten(@theme-text-color, 30%);
+        }
+        .triangle & {
+          color: darken(@triangle-text-color,20%);
+        }
+
+      }
+    }
+  }
+
 }

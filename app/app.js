@@ -9,8 +9,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
         $stateProvider
             .state('index', {
                 templateUrl: 'app/templates/shared/skeleton.html',
-                abstract: true,
-                controller: 'cnc'
+                abstract: true
             })
             .state('home', {
                 template: '<div intro-dir></div>',
@@ -59,5 +58,13 @@ app.run(function ($rootScope) {
 
  */
 app.controller('cnc', ['$scope', '$state', '$rootScope', function ($scope, $state, $rootScope) {
-
+    $rootScope.changeCss = function(theClass)
+    {
+        $rootScope.currentClass = theClass;
+    };
+    $rootScope.generateTri = function(){
+        var t = new Trianglify();
+        var pattern = t.generate(document.body.clientWidth, document.body.clientHeight);
+        $rootScope.tridata = pattern.dataUrl;
+    }
     }]);
