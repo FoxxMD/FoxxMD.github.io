@@ -13,7 +13,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 controller: 'cnc'
             })
             .state('home', {
-                templateUrl: 'app/templates/home.html',
+                template: '<div intro-dir></div>',
                 url: '/',
                 parent: 'index'
             })

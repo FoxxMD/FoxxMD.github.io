@@ -8,7 +8,7 @@
 @themeLightPrimaryAlternate: rgb(248,148,6);*/
 .foxx {
   background-color: #53777a;
-  color: #e8d5b7;
+  color: #eee0ca;
 }
 .foxx a {
   color: #e8d5b7;
@@ -24,29 +24,29 @@
 .foxx h3,
 .foxx h4,
 .foxx h5 {
-  color: #e8d5b7;
+  color: #eee0ca;
 }
 .foxx .navbar-default {
   border: 0px;
   background-color: #c02942;
   background-image: none;
-  color: #e8d5b7;
+  color: #eee0ca;
 }
 .foxx .navbar-default li a {
   cursor: default;
-  color: #e8d5b7;
+  color: #eee0ca;
 }
 .foxx .navbar-default li a:hover {
   color: #ffffff;
 }
 .foxx .navbar-default .navbar-brand {
-  color: #e8d5b7;
+  color: #eee0ca;
 }
 .foxx .navbar-default .navbar-brand:hover {
   color: #ffffff;
 }
 .foxx .navbar-default li.dropdown a.dropdown-toggle {
-  color: #e8d5b7;
+  color: #eee0ca;
   background-color: inherit;
   background-image: none;
 }
@@ -61,7 +61,7 @@
   background-color: #c02942;
 }
 .foxx .navbar-default ul.dropdown-menu li a {
-  color: #e8d5b7;
+  color: #eee0ca;
   background-color: inherit;
   background-image: none;
 }
