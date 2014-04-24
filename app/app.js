@@ -28,15 +28,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
     }]);
 
 app.run(function ($rootScope) {
-    $rootScope.$on('broadcast', function (e, data) {
-        if (undefined == data.with) {
-            $rootScope.$broadcast(data.say);
-        }
-        else {
-            $rootScope.$broadcast(data.say, data.with);
-        }
-    });
-
     $rootScope.$on('$stateChangeStart',
         function (event, toState, toParams, fromState, fromParams) {
             //might use this...

@@ -4,13 +4,13 @@ angular.module('app.directives', [])
             restrict: 'AE',
             templateUrl: '/app/templates/home.html',
             link: function (scope, element, attrs) {
-                $(document).ready(function(){
+/*                $(document).ready(function(){
                     $(element).find('#introPage').fullpage({
                         easing:'easeOutExpo',
                         navigation: true,
                         scrollingSpeed: 900
                     });
-                });
+                });*/
             }
         };
         return directive;
