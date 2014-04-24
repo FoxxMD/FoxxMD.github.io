@@ -1,4 +1,5 @@
-.foxx{
+body.foxx{
+  background-image: none;
   background-color:@themeBackground;
   color:@theme-text-color;
   a{
@@ -19,7 +20,8 @@
   }
 }
 
-.triangle{
+body.triangle {
+  background-size:cover;
   color:@triangle-text-color;
   .jumbotron{
     background-color:transparent;
@@ -36,4 +38,9 @@
   .triangle &{
     background-color: transparent;
   }
+}
+
+body {
+  font-size: 16px !important;
+  font-family: 'Quicksand', 'sans-serif' !important;
 }

@@ -57,14 +57,22 @@ app.run(function ($rootScope) {
  Basically everything on the menu bar.
 
  */
-app.controller('cnc', ['$scope', '$state', '$rootScope', function ($scope, $state, $rootScope) {
+app.controller('cnc', ['$scope', '$state', '$rootScope','$timeout', function ($scope, $state, $rootScope, $timeout) {
     $rootScope.changeCss = function(theClass)
     {
         $rootScope.currentClass = theClass;
+        if(theClass == 'foxx')
+        {
+            $rootScope.tridata = null;
+        }
     };
-    $rootScope.generateTri = function(){
-        var t = new Trianglify();
-        var pattern = t.generate(document.body.clientWidth, document.body.clientHeight);
+    $rootScope.generateTri = function() {
+        var t = new Trianglify({
+            noiseIntensity: 0
+        });
+        //var pattern = t.generate(document.body.clientWidth, document.body.clientHeight);
+        var pattern = t.generate((window.innerWidth*1.5), (window.innerHeight*1.5));
         $rootScope.tridata = pattern.dataUrl;
-    }
+    };
+    $rootScope.generateTri();
     }]);

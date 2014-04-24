@@ -6,41 +6,47 @@
 @themeDarkPrimary: rgb(0,116,142);
 @themeLightPrimary: rgb(252,58,81);
 @themeLightPrimaryAlternate: rgb(248,148,6);*/
-.foxx {
+body.foxx {
+  background-image: none;
   background-color: #53777a;
   color: #eee0ca;
 }
-.foxx a {
+body.foxx a {
   color: #e8d5b7;
 }
-.foxx a:hover {
+body.foxx a:hover {
   color: #f4ecde;
 }
-.foxx .jumbotron {
+body.foxx .jumbotron {
   background-color: #53777a;
 }
-.foxx h1,
-.foxx h2,
-.foxx h3,
-.foxx h4,
-.foxx h5 {
+body.foxx h1,
+body.foxx h2,
+body.foxx h3,
+body.foxx h4,
+body.foxx h5 {
   color: #eee0ca;
 }
-.triangle {
+body.triangle {
+  background-size: cover;
   color: #000000;
 }
-.triangle .jumbotron {
+body.triangle .jumbotron {
   background-color: transparent;
 }
-.triangle h1,
-.triangle h2,
-.triangle h3,
-.triangle h4,
-.triangle h5 {
+body.triangle h1,
+body.triangle h2,
+body.triangle h3,
+body.triangle h4,
+body.triangle h5 {
   color: #000000;
 }
 .triangle .section {
   background-color: transparent;
+}
+body {
+  font-size: 16px !important;
+  font-family: 'Quicksand', 'sans-serif' !important;
 }
 .foxx ul.dropdown-menu {
   background-color: #c02942;
