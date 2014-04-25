@@ -8,16 +8,18 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         $stateProvider
             .state('index', {
-                templateUrl: 'app/templates/shared/skeleton.html',
+                template: '<div skeleton-dir></div>',
                 abstract: true
             })
             .state('home', {
-                template: '<div intro-dir></div>',
+                templateUrl: '/app/templates/home.html',
                 url: '/',
-                parent: 'index',
-                data:{
-                    height: '450px'
-                }
+                parent: 'index'
+            })
+            .state('work',{
+                templateUrl:'/app/templates/work.html',
+                url:'/work',
+                parent:'index'
             })
             .state('404', {
                 templateUrl: 'app/templates/shared/404.html',
@@ -31,10 +33,10 @@ app.config(['$stateProvider', '$urlRouterProvider',
     }]);
 
 app.run(function ($rootScope) {
-    $rootScope.$on('$stateChangeStart',
+/*    $rootScope.$on('$stateChangeStart',
         function (event, toState, toParams, fromState, fromParams) {
             //might use this...
-        })
+        });*/
 });
 
 
@@ -55,18 +57,6 @@ app.controller('cnc', ['$scope', '$state', '$rootScope','$timeout', function ($s
 
     $scope.state = $state;
 
-    $rootScope.changeCss = function(theClass)
-    {
-        $rootScope.currentClass = theClass;
-        if(theClass == 'foxx')
-        {
-            $rootScope.tridata = null;
-        }
-    };
-    $rootScope.changeFont = function(theFont)
-    {
-        $rootScope.currentFont = theFont;
-    };
     $rootScope.generateTri = function() {
         var t = new Trianglify({
             noiseIntensity: 0

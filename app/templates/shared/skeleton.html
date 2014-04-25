@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li><a href="#" tooltip-placement="top" tooltip="Home"
+            <li><a ui-sref="home" href="#" tooltip-placement="top" tooltip="Home"
                    ng-class="{'active': state.current.name == 'home'}"><i class="fa fa-home fa-3x"></i></a></li>
-            <li><a tooltip-placement="top" tooltip="Work"><i class="fa fa-folder-o fa-3x"></i></a></li>
+            <li><a ui-sref="work" tooltip-placement="top" tooltip="Work"><i class="fa fa-folder-o fa-3x"></i></a></li>
             <li><a tooltip-placement="top" tooltip="Photography"><i class="fa fa-camera-retro fa-3x"></i></a></li>
             <li><a tooltip-placement="top" tooltip="Dragons Be Here"><i class="fa fa-magic fa-3x"></i></a></li>
         </ul>
@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
             <div class="showcasePane"><!--ng-style="{'height':state.current.data.height}"-->
-                <div ui-view></div>
+                <div class="contentPane" ui-view></div>
             </div>
         </div>
     </div>
