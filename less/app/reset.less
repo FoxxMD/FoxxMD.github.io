@@ -1,46 +1,62 @@
-body.foxx{
+body.foxx {
   background-image: none;
-  background-color:@themeBackground;
-  color:@theme-text-color;
-  a{
-    color:@theme-link-color;
-    &:hover{
-      color:@theme-link-hover-color;
+  background-color: @themeBackground;
+  color: @theme-text-color;
+  a {
+    color: @theme-link-color;
+    &:hover {
+      color: @theme-link-hover-color;
     }
   }
-  .jumbotron{
-    background-color:@themeBackground;
+  .jumbotron {
+    background-color: @themeBackground;
   }
   h1,
   h2,
   h3,
   h4,
-  h5{
-    color:@theme-text-color;
+  h5 {
+    color: @theme-text-color;
   }
 }
 
 body.triangle {
-  background-size:cover;
-  color:@triangle-text-color;
-  .jumbotron{
-    background-color:transparent;
+  background-size: cover;
+  color: @triangle-text-color;
+  .jumbotron {
+    background-color: transparent;
   }
   h1,
   h2,
   h3,
   h4,
-  h5{
-    color:@triangle-text-color;
+  h5 {
+    color: @triangle-text-color;
   }
 }
-.section{
-  .triangle &{
+
+.section {
+  .triangle & {
     background-color: transparent;
   }
 }
 
 body {
-  font-size: 16px !important;
-  font-family: 'Quicksand', 'sans-serif' !important;
+
+  &.quicksand {
+    font-size: 16px !important;
+    font-family: 'Quicksand', 'sans-serif' !important;
+  }
+  &.sourcesans {
+    font-family: 'Source Sans Pro', 'sans-serif' !important;
+    font-weight:300 !important;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5
+    {
+      font-weight:400 !important;
+    }
+  }
 }

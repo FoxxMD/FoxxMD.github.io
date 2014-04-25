@@ -4,26 +4,26 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css"/>
     <link rel="stylesheet" href="assets/css/bootstrap-theme.css"/>
     <link rel="stylesheet" href="assets/css/app.css"/>
-    <link rel="stylesheet" href="assets/css/jquery.fullPage.css"/>
     <link rel="stylesheet" href="assets/css/b.min.css"/>
-    <link href='http://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script type="text/javascript" src="assets/js/script.js"></script>
     <script type="text/javascript">
-        $script(['assets/js/jquery.min.js'],function(){
-            $script(['assets/js/jquery.fullPage.js',
+        $script(['assets/js/jquery.min.js'], function () {
+            $script(['assets/js/bootstrap.min.js',
                 'assets/js/jquery.easings.min.js',
                 'assets/js/d3.min.js',
                 'assets/js/trianglify.min.js']);
         });
         $script([
-            'assets/js/angular/angular-loader.min.js',
-            'assets/js/angular/angular.js'],
-                function(){
+                    'assets/js/angular/angular-loader.min.js',
+                    'assets/js/angular/angular.js'],
+                function () {
                     getApp();
                 });
-        function getApp(){
+        function getApp() {
             $script([
                 'assets/js/angular/angular-animate.min.js',
                 'assets/js/angular/angular-sanitize.min.js',
@@ -33,7 +33,7 @@
                 'assets/js/angular/ui-bootstrap-tpls-0.10.0.js',
                 'app/app.js',
                 'app/directives.js'
-            ], function() {
+            ], function () {
                 // when all is done, execute bootstrap angular application
                 angular.bootstrap(document, ['app']);
             });
@@ -53,10 +53,8 @@
     <![endif]-->
     <title>The Foxx</title>
 </head>
-<body ng-controller="cnc" ng-class="currentClass || 'triangle'" ng-style="{'background-image': tridata}">
-<div ui-view></div>
+<body ng-controller="cnc" class="triangle sourcesans" ng-style="{'background-image': tridata}">
+    <div ui-view></div>
 </body>
 <script type="text/javascript" src="assets/js/modernizr-2.7.1.js"></script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
 </html>

@@ -14,7 +14,10 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('home', {
                 template: '<div intro-dir></div>',
                 url: '/',
-                parent: 'index'
+                parent: 'index',
+                data:{
+                    height: '450px'
+                }
             })
             .state('404', {
                 templateUrl: 'app/templates/shared/404.html',
@@ -49,6 +52,9 @@ app.run(function ($rootScope) {
 
  */
 app.controller('cnc', ['$scope', '$state', '$rootScope','$timeout', function ($scope, $state, $rootScope, $timeout) {
+
+    $scope.state = $state;
+
     $rootScope.changeCss = function(theClass)
     {
         $rootScope.currentClass = theClass;
@@ -57,11 +63,14 @@ app.controller('cnc', ['$scope', '$state', '$rootScope','$timeout', function ($s
             $rootScope.tridata = null;
         }
     };
+    $rootScope.changeFont = function(theFont)
+    {
+        $rootScope.currentFont = theFont;
+    };
     $rootScope.generateTri = function() {
         var t = new Trianglify({
             noiseIntensity: 0
         });
-        //var pattern = t.generate(document.body.clientWidth, document.body.clientHeight);
         var pattern = t.generate((window.innerWidth*1.5), (window.innerHeight*1.5));
         $rootScope.tridata = pattern.dataUrl;
     };

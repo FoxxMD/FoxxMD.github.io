@@ -1,48 +1,20 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#siteNavbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Matthew Foxx</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="siteNavbar">
-            <ul class="nav navbar-nav">
-                <li><a>Resume</a></li>
-                <li><a>Projects</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Photography<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">The People I know</a></li>
-                        <li><a href="#">The Places I've Been</a></li>
-                        <li><a href="#">The Things I've Seen</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dragons Be Here<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Yarrr</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Styles<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#" ng-class="{'active': currentClass == undefined || currentClass == 'foxx'}" ng-click="changeCss('foxx')">Nostalgic</a></li>
-                        <li><a href="#" ng-class="{'active': currentClass == 'triangle'}" ng-click="changeCss('triangle');generateTri();">Trianglify</a></li>
-                        </ul>
-                </li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        <ul class="nav navbar-nav">
+            <li><a href="#" tooltip-placement="top" tooltip="Home"
+                   ng-class="{'active': state.current.name == 'home'}"><i class="fa fa-home fa-3x"></i></a></li>
+            <li><a tooltip-placement="top" tooltip="Work"><i class="fa fa-folder-o fa-3x"></i></a></li>
+            <li><a tooltip-placement="top" tooltip="Photography"><i class="fa fa-camera-retro fa-3x"></i></a></li>
+            <li><a tooltip-placement="top" tooltip="Dragons Be Here"><i class="fa fa-magic fa-3x"></i></a></li>
+        </ul>
+    </div>
 </nav>
-<div style="margin-top:50px;" class="container-fluid">
-    <div ui-view></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 col-md-offset-3 col-sm-10 col-sm-offset-2">
+            <div class="showcasePane"><!--ng-style="{'height':state.current.data.height}"-->
+                <div ui-view></div>
+            </div>
+        </div>
+    </div>
 </div>
