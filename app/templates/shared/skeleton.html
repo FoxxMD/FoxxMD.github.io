@@ -5,8 +5,10 @@
                    ng-class="{'active': state.current.name == 'home'}"><i class="fa fa-home fa-3x"></i></a></li>
             <li><a ui-sref="work" tooltip-placement="top" tooltip="Work"
                    ng-class="{'active': state.current.name == 'work'}"><i class="fa fa-folder-o fa-3x"></i></a></li>
-            <li><a tooltip-placement="top" tooltip="Photography"><i class="fa fa-camera-retro fa-3x"></i></a></li>
-            <li><a tooltip-placement="top" tooltip="Dragons Be Here"><i class="fa fa-magic fa-3x"></i></a></li>
+            <li><a ui-sref="photos" tooltip-placement="top" tooltip="Photography"
+                   ng-class="{'active': state.current.name == 'photos'}"><i class="fa fa-camera-retro fa-3x"></i></a></li>
+            <li><a ui-sref="projects" tooltip-placement="top" tooltip="Dragons Be Here"
+                   ng-class="{'active': state.current.name == 'projects'}"><i class="fa fa-magic fa-3x"></i></a></li>
         </ul>
     </div>
 </nav>

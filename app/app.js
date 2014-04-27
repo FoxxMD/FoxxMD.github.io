@@ -22,6 +22,16 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 url:'/work',
                 parent:'index'
             })
+            .state('photos',{
+                templateUrl:'/app/templates/photos.html',
+                url:'/photos',
+                parent:'index'
+            })
+            .state('projects',{
+                templateUrl:'/app/templates/projects.html',
+                url:'/projects',
+                parent:'index'
+            })
             .state('404', {
                 templateUrl: 'app/templates/shared/404.html',
                 url: '/404',
