@@ -67,7 +67,6 @@ body.sourcesans h5 {
 }
 li a {
   /*    ul.dropdown-menu &,*/
-
 }
 .navbar-default li a {
   background-color: inherit;
@@ -185,28 +184,24 @@ li a {
   /*  -webkit-transform:scale3d(0.5, 0.5, 0.5);
   -moz-transform:scale3d(0.5, 0.5, 0.5);
   transform:scale3d(0.5, 0.5, 0.5);*/
-
 }
 [ui-view].contentPane.ng-enter-active {
   opacity: 1;
   /*  -webkit-transform:scale3d(1, 1, 1);
   -moz-transform:scale3d(1, 1, 1);
   transform:scale3d(1, 1, 1);*/
-
 }
 [ui-view].contentPane.ng-leave {
   opacity: 1;
   /*  -webkit-transform:translate3d(0, 0, 0);
   -moz-transform:translate3d(0, 0, 0);
   transform:translate3d(0, 0, 0);*/
-
 }
 [ui-view].contentPane.ng-leave-active {
   opacity: 0;
   /*  -webkit-transform:translate3d(100px, 0, 0);
   -moz-transform:translate3d(100px, 0, 0);
   transform:translate3d(100px, 0, 0);*/
-
 }
 .showcasePane {
   background-color: rgba(255, 255, 255, 0.75);
@@ -233,4 +228,12 @@ li a {
   .homeCard {
     font-size: 3.1em;
   }
+}
+.thumbnail {
+  background-color: #f5f5f5;
+  box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+.thumbnail .caption {
+  color: black;
 }

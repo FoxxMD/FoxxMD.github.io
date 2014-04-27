@@ -8,7 +8,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         $stateProvider
             .state('index', {
-                template: '<div skeleton-dir></div>',
+                templateUrl: '/app/templates/shared/skeleton.html',
+                controller:'cnc',
                 abstract: true
             })
             .state('home', {
