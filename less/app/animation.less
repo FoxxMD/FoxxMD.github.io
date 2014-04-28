@@ -1,13 +1,18 @@
-[ui-view].contentPane.ng-enter, .contentPane.ng-leave {
-  -webkit-transition:all 1s ease-in-out;
-  -moz-transition:all 1s ease-in-out;
-  -o-transition:all 1s ease-in-out;
-  transition:all 1s ease-in-out;
-  position:absolute;
+[ui-view].contentPane.ng-enter, [ui-view].contentPane.ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition:all .5s ease-in-out;
+  -moz-transition:all .5s ease-in-out;
+  -o-transition:all .5s ease-in-out;
+  transition:all .5s ease-in-out;
 }
 
 [ui-view].contentPane.ng-enter {
   opacity: 0;
+  -o-webkit-transition-delay:1.5s;
+  -moz-webkit-transition-delay:1.5s;
+  -webkit-transition-delay:1.5s;
   transition-delay: 1.5s;
 }
 

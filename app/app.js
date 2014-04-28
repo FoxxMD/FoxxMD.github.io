@@ -1,5 +1,5 @@
 //initialize app
-var app = angular.module('app', ['ngAnimate', 'ngStorage', 'ngSanitize', 'ui.router', 'ui.bootstrap', 'app.directives']);
+var app = angular.module('app', ['ngAnimate', 'ngStorage', 'ui.router', 'ui.bootstrap', 'app.directives']);
 
 //configure routing
 //hydrate all states for application in order to setup site structure
@@ -17,7 +17,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 url: '/',
                 parent: 'index',
                 data:{
-                    height:'500px'
+                    height:'450px'
                 }
             })
             .state('work',{
@@ -25,18 +25,24 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 url:'/work',
                 parent:'index',
                 data:{
-                    height:'700px'
+                    height:'650px'
                 }
             })
             .state('photos',{
                 templateUrl:'/app/templates/photos.html',
                 url:'/photos',
-                parent:'index'
+                parent:'index',
+                data:{
+                    height:'400px'
+                }
             })
             .state('projects',{
                 templateUrl:'/app/templates/projects.html',
                 url:'/projects',
-                parent:'index'
+                parent:'index',
+                data:{
+                    height:'400px'
+                }
             })
             .state('404', {
                 templateUrl: 'app/templates/shared/404.html',
@@ -70,7 +76,7 @@ app.run(function ($rootScope) {
  Basically everything on the menu bar.
 
  */
-app.controller('cnc', ['$scope', '$state', '$rootScope','$timeout', function ($scope, $state, $rootScope, $timeout) {
+app.controller('cnc', ['$scope', '$state', '$rootScope','$animate', function ($scope, $state, $rootScope, $animate) {
 
     $scope.state = $state;
 
@@ -83,16 +89,4 @@ app.controller('cnc', ['$scope', '$state', '$rootScope','$timeout', function ($s
     };
     $rootScope.generateTri();
 
-/*    $rootScope.$on('$stateChangeStart',
-     function (event, toState, toParams, fromState, fromParams) {
-     if(fromState.name !== "")
-         {
-            $scope.theWidth = $('.showcasePane').outerWidth();
-            $scope.theHeight = $('.showcasePane').outerHeight();
-*//*             $timeout(function() {
-                 $scope.theWidth = null;
-                 $scope.theHeight = null;
-             },0);*//*
-         }
-     });*/
     }]);
