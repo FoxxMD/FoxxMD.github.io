@@ -15,12 +15,18 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('home', {
                 templateUrl: '/app/templates/home.html',
                 url: '/',
-                parent: 'index'
+                parent: 'index',
+                data:{
+                    height:'500px'
+                }
             })
             .state('work',{
                 templateUrl:'/app/templates/work.html',
                 url:'/work',
-                parent:'index'
+                parent:'index',
+                data:{
+                    height:'700px'
+                }
             })
             .state('photos',{
                 templateUrl:'/app/templates/photos.html',
@@ -76,4 +82,17 @@ app.controller('cnc', ['$scope', '$state', '$rootScope','$timeout', function ($s
         $rootScope.tridata = pattern.dataUrl;
     };
     $rootScope.generateTri();
+
+/*    $rootScope.$on('$stateChangeStart',
+     function (event, toState, toParams, fromState, fromParams) {
+     if(fromState.name !== "")
+         {
+            $scope.theWidth = $('.showcasePane').outerWidth();
+            $scope.theHeight = $('.showcasePane').outerHeight();
+*//*             $timeout(function() {
+                 $scope.theWidth = null;
+                 $scope.theHeight = null;
+             },0);*//*
+         }
+     });*/
     }]);
