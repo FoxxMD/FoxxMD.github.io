@@ -1,5 +1,5 @@
 //initialize app
-var app = angular.module('app', ['ngAnimate', 'ngStorage', 'ui.router', 'ui.bootstrap', 'app.directives']);
+var app = angular.module('app', ['ngAnimate', 'ui.router', 'ui.bootstrap', 'app.directives']);
 
 //configure routing
 //hydrate all states for application in order to setup site structure

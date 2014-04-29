@@ -170,30 +170,32 @@ li a {
 .triangle .navbar-default li.dropdown.active a.dropdown-toggle {
   color: #000000;
 }
-[ui-view].contentPane.ng-enter,
-[ui-view].contentPane.ng-leave {
+.contentPane.ng-enter,
+.contentPane.ng-leave {
   position: absolute;
   left: 0;
   right: 0;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
+  -transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-[ui-view].contentPane.ng-enter {
+.contentPane.ng-enter {
   opacity: 0;
-  -o-webkit-transition-delay: 1.5s;
-  -moz-webkit-transition-delay: 1.5s;
+  -o-transition-delay: 1.5s;
+  -moz-transition-delay: 1.5s;
   -webkit-transition-delay: 1.5s;
+  -ms-transition-delay: 1.5s;
   transition-delay: 1.5s;
 }
-[ui-view].contentPane.ng-enter-active {
+.contentPane.ng-enter-active {
   opacity: 1;
 }
-[ui-view].contentPane.ng-leave {
+.contentPane.ng-leave {
   opacity: 1;
 }
-[ui-view].contentPane.ng-leave-active {
+.contentPane.ng-leave-active {
   opacity: 0;
 }
 .showcasePane {
