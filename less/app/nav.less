@@ -1,10 +1,6 @@
 @import "variables.less";
 
 ul.dropdown-menu {
-  //Style-specific
-  .foxx & {
-    background-color: @themeDarkPrimary;
-  }
   .triangle & {
     background-color: @triangle-Background;
   }
@@ -18,10 +14,6 @@ li {
       background-image: none;
       cursor: default;
 
-      //Style-specific
-      .foxx & {
-        color: @theme-text-color;
-      }
       .triangle &{
         padding-top:0px;
         color: @triangle-text-color;
@@ -47,11 +39,6 @@ li {
       &:hover,
       &.active {
         background-image: none;
-        //Style-specific
-        .foxx & {
-          color: lighten(@theme-text-color, 30%);
-          background-color: @themeDarkPrimary;
-        }
         .triangle & {
           color: darken(@triangle-text-color,5%);
           background-color: transparent;
@@ -84,11 +71,6 @@ li {
     margin-right:0.5em;
   }
 
-  //Style-specific
-  .foxx & {
-    background-color: @themeDarkPrimary;
-    color: @theme-text-color;
-  }
   .triangle & {
     background-color: transparent;
     color: @triangle-text-color;
@@ -96,27 +78,12 @@ li {
 
   .navbar-brand {
 
-    //Style-specific
-    .foxx & {
-      color: @theme-text-color;
-      &:hover {
-        color: lighten(@theme-text-color, 30%);
-      }
-    }
     .triangle & {
       color: @triangle-text-color;
     }
   }
   li.dropdown {
     a.dropdown-toggle {
-
-      //Style-specific
-      .foxx & {
-        color: @theme-text-color;
-        &:hover {
-          color: lighten(@theme-text-color, 30%);
-        }
-      }
       .triangle &{
         color: @triangle-text-color;
       }
@@ -128,10 +95,6 @@ li {
         background-color: inherit;
         background-image: none;
 
-        //Style-specific
-        .foxx & {
-          color: lighten(@theme-text-color, 30%);
-        }
         .triangle & {
           color: darken(@triangle-text-color,20%);
         }
