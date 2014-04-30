@@ -1,1 +1,9 @@
-<h1>Photos Coming soon!</h1>
+<div class="alert-warning alert"><h2><strong>Still testing this!</strong></h2></div>
+
+<div masonry column-width="300" class="masonryContainer">
+    <div class="masonry-brick" ng-repeat="brick in bricks">
+        <img class="item {{brick.type}}" ng-src="{{brick.src}}"/>
+    </div>
+</div>
+
+

@@ -39,7 +39,6 @@ body.sourcesans h5 {
 }
 li a {
   /*    ul.dropdown-menu &,*/
-
 }
 .navbar-default li a {
   background-color: inherit;
@@ -119,6 +118,8 @@ li a {
   position: absolute;
   left: 0;
   right: 0;
+  top: 0;
+  margin: 3em;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -152,6 +153,7 @@ li a {
   -ms-transition: all 0.5s ease 1s;
   -o-transition: all 0.5s ease 1s;
   transition: all 0.5s ease 1s;
+  overflow-y: hidden;
   height: auto;
 }
 .showcasePane img.logo {
@@ -166,9 +168,48 @@ li a {
 .thumbnail .caption {
   color: black;
 }
+.home {
+  height: 450px !important;
+}
+.work {
+  height: 650px !important;
+}
+.photos {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.photos .item {
+  width: 300px;
+}
+.photos .item.w2 {
+  width: 450px;
+}
+.photos .masonryContainer {
+  /*  .masonry-brick.loaded img{
+          opacity: 1;
+        }*/
+}
+.photos .masonryContainer img.showPhoto {
+  opacity: 1;
+}
+.photos .masonryContainer img {
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out 0.1s;
+  -moz-transition: all 0.5s ease-in-out 0.1s;
+  -ms-transition: all 0.5s ease-in-out 0.1s;
+  -o-transition: all 0.5s ease-in-out 0.1s;
+  transition: all 0.5s ease-in-out 0.1s;
+}
+.projects {
+  height: 400px;
+}
 @media (max-width: 767px) {
   .home {
-    height: 300px;
+    height: 300px !important;
   }
   .homeCard {
     font-size: 1.7em;
@@ -176,7 +217,7 @@ li a {
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .home {
-    height: 350px;
+    height: 350px !important;
   }
   .homeCard {
     font-size: 2.0em;

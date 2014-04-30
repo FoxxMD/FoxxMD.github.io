@@ -14,6 +14,7 @@
   -ms-transition: all 0.5s ease 1s;
   -o-transition: all 0.5s ease 1s;
   transition: all 0.5s ease 1s;
+  overflow-y:hidden;
   height: auto;
   img.logo {
     max-width: 339px;
@@ -30,9 +31,53 @@
   }
 }
 
+.home {
+  height: 450px !important;
+}
+
+.work {
+  height: 650px !important;
+}
+
+.photos {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  .item{
+    width:300px;
+    &.w2{
+      width:450px;
+    }
+  }
+  .masonryContainer{
+    //height:auto !important;
+    /*  .masonry-brick.loaded img{
+          opacity: 1;
+        }*/
+    img.showPhoto{
+      opacity:1;
+    }
+    img {
+      width: 100%;
+      opacity: 0;
+      -webkit-transition: all 0.5s ease-in-out 0.1s;
+      -moz-transition: all 0.5s ease-in-out 0.1s;
+      -ms-transition: all 0.5s ease-in-out 0.1s;
+      -o-transition: all 0.5s ease-in-out 0.1s;
+      transition: all 0.5s ease-in-out 0.1s;
+    }
+  }
+}
+
+.projects {
+  height: 400px;
+}
+
 @media (max-width: @screen-xs-max) {
   .home {
-    height: 300px;
+    height: 300px !important;
   }
 
   .homeCard {
@@ -42,7 +87,7 @@
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
   .home {
-    height: 350px;
+    height: 350px !important;
   }
 
   .homeCard {

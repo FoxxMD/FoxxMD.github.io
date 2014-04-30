@@ -1,5 +1,5 @@
 //initialize app
-var app = angular.module('app', ['ngAnimate', 'ui.router', 'ui.bootstrap', 'app.directives']);
+var app = angular.module('app', ['ngAnimate', 'ui.router', 'ui.bootstrap', 'app.directives','wu.masonry']);
 
 //configure routing
 //hydrate all states for application in order to setup site structure
@@ -15,34 +15,22 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('home', {
                 templateUrl: '/app/templates/home.html',
                 url: '/',
-                parent: 'index',
-                data:{
-                    height:'450px'
-                }
+                parent: 'index'
             })
             .state('work',{
                 templateUrl:'/app/templates/work.html',
                 url:'/work',
-                parent:'index',
-                data:{
-                    height:'650px'
-                }
+                parent:'index'
             })
             .state('photos',{
-                templateUrl:'/app/templates/photos.html',
+                template:'<div photos-dir></div>',
                 url:'/photos',
-                parent:'index',
-                data:{
-                    height:'400px'
-                }
+                parent:'index'
             })
             .state('projects',{
                 templateUrl:'/app/templates/projects.html',
                 url:'/projects',
-                parent:'index',
-                data:{
-                    height:'400px'
-                }
+                parent:'index'
             })
             .state('404', {
                 templateUrl: 'app/templates/shared/404.html',
