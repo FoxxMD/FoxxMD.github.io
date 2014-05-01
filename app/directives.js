@@ -28,11 +28,30 @@ angular.module('app.directives', ['wu.masonry'])
                 });
                 scope.$on('masonry.layoutComplete', function(event, message){
                     message = message + 100;
+                    var imagesLoaded = false;
+                    if(showImages){
+                        $timeout.cancel(showImages);
+                    }
+                    var showImages = $timeout(function() {
+                        if (!imagesLoaded)
+                        {
+                            imagesLoaded = true;
+                            ranImages = shuffle($(element[0]).find('img'));
+                        $timeout(function () {
+                            ranImages.each(function (index, item) {
+                                var waittime = Math.floor((Math.random() * 100) + 100);
+                                $timeout(function () {
+                                    $(item).addClass('showPhoto');
+                                }, waittime);
+                            });
+                        }, 0);
+                    }
+                    },700);
+
                     if(showcaseHeight < message)
                     {
                         $('.showcasePane').css('height', message);
                     }
-
                 });
 
                 function shuffle(array) {
@@ -47,18 +66,6 @@ angular.module('app.directives', ['wu.masonry'])
 
                     return array;
                 }
-
-                scope.$on('allImagesLoaded',function(){
-                        ranImages = shuffle($(element[0]).find('img'));
-                        $timeout(function () {
-                            ranImages.each(function (index, item) {
-                                var waittime = Math.floor((Math.random() * 100) + 100);
-                                $timeout(function () {
-                                    $(item).addClass('showPhoto');
-                                }, waittime);
-                            });
-                        }, 800);
-                });
             }
         };
         return directive;

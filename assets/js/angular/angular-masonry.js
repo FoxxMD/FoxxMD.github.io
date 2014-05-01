@@ -42,12 +42,6 @@
             $element.masonry.apply($element, args);
               console.log('[MASONRY][SCHEDULER] applying action: ' + args[0])
           });
-            var count = 0;
-            for (var k in bricks) if (bricks.hasOwnProperty(k)) count++;
-            if(count== $scope.bricks.length)
-            {
-                $scope.$emit('allImagesLoaded');
-            }
             console.log('[SCHEDULER] clearing schedule!');
           schedule = [];
         }, 30);
