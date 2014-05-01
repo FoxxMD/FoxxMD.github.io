@@ -22,7 +22,6 @@
         var found = schedule.filter(function filterFn(item) {
             return item[0] === args[0];
           }).length > 0;
-          console.log('[SCHEDULER] queued argument: ' + arguments[0] + ' was found: ' + found + ' -- so applying = ' + !found);
         if (!found) {
           this.scheduleMasonry.apply(null, arguments);
         }
@@ -40,9 +39,7 @@
           }
           schedule.forEach(function scheduleForEach(args) {
             $element.masonry.apply($element, args);
-              console.log('[MASONRY][SCHEDULER] applying action: ' + args[0])
           });
-            console.log('[SCHEDULER] clearing schedule!');
           schedule = [];
         }, 30);
       };
@@ -61,7 +58,6 @@
             // Keep track of added elements.
             bricks[id] = true;
             defaultLoaded(element);
-              console.log('[MASONRY] Appending element');
             $element.masonry('appended', element, true);
           }
         }
