@@ -43,12 +43,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
         $urlRouterProvider.otherwise('404');
     }]);
 
-app.run(function ($rootScope) {
-/*    $rootScope.$on('$stateChangeStart',
+/*app.run(function ($rootScope) {
+    $rootScope.$on('$stateChangeSuccess',
         function (event, toState, toParams, fromState, fromParams) {
-            //might use this...
-        });*/
-});
+
+        });
+});*/
 
 
 /*
@@ -72,7 +72,7 @@ app.controller('cnc', ['$scope', '$state', '$rootScope','$animate', function ($s
         var t = new Trianglify({
             noiseIntensity: 0
         });
-        var pattern = t.generate((window.innerWidth*1.5), (window.innerHeight*1.5));
+        var pattern = t.generate((window.innerWidth*1.5), (window.innerHeight*2));
         $rootScope.tridata = pattern.dataUrl;
     };
     $rootScope.generateTri();

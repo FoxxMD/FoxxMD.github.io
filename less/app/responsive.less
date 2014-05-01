@@ -1,0 +1,41 @@
+@media (max-width: @screen-xs-max) {
+  .showcasePane{
+    &.home{
+      height:300px;
+    }
+    &.work{
+      height:850px;
+    }
+  }
+  .home {
+    .homeCard {
+      font-size: 1.7em;
+    }
+  }
+}
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+  .showcasePane {
+    &.home {
+      height:350px;
+      .homeCard {
+        font-size: 2.0em;
+      }
+    }
+    &.work{
+      height:820px;
+    }
+  }
+}
+
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+  .homeCard {
+    font-size: 2.6em;
+  }
+}
+
+@media (min-width: 1201px) {
+  .homeCard {
+    font-size: 3.1em;
+  }
+}

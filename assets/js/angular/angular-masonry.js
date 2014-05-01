@@ -22,6 +22,7 @@
         var found = schedule.filter(function filterFn(item) {
             return item[0] === args[0];
           }).length > 0;
+          console.log('[SCHEDULER] queued argument: ' + arguments[0] + ' was found: ' + found + ' -- so applying = ' + !found);
         if (!found) {
           this.scheduleMasonry.apply(null, arguments);
         }
@@ -39,6 +40,7 @@
           }
           schedule.forEach(function scheduleForEach(args) {
             $element.masonry.apply($element, args);
+              console.log('[MASONRY][SCHEDULER] applying action: ' + args[0])
           });
             var count = 0;
             for (var k in bricks) if (bricks.hasOwnProperty(k)) count++;
@@ -46,7 +48,7 @@
             {
                 $scope.$emit('allImagesLoaded');
             }
-
+            console.log('[SCHEDULER] clearing schedule!');
           schedule = [];
         }, 30);
       };
@@ -65,6 +67,7 @@
             // Keep track of added elements.
             bricks[id] = true;
             defaultLoaded(element);
+              console.log('[MASONRY] Appending element');
             $element.masonry('appended', element, true);
           }
         }
@@ -130,6 +133,11 @@
           ctrl.preserveOrder = preserveOrder !== false && attrs.preserveOrder !== undefined;
           scope.$emit('masonry.created', element);
           scope.$on('$destroy', ctrl.destroy);
+
+            element.masonry('on','layoutComplete', function(instance, items) {
+               scope.$emit('masonry.layoutComplete', instance.size.height);
+            });
+
         }
       }
     };

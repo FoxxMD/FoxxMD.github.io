@@ -3,12 +3,14 @@
 @import "reset.less";
 @import "nav.less";
 @import "animation.less";
+@import "responsive.less";
 
 .showcasePane {
   background-color: rgba(255, 255, 255, 0.75);
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.25);
   position: relative;
   padding: 3em;
+  margin-bottom:3em;
   -webkit-transition: all 0.5s ease 1s;
   -moz-transition: all 0.5s ease 1s;
   -ms-transition: all 0.5s ease 1s;
@@ -32,35 +34,36 @@
 }
 
 .home {
-  height: 450px !important;
+  height: 450px;
 }
 
 .work {
-  height: 650px !important;
+  height: 510px;
+  img{
+    max-height:200px;
+  }
 }
 
 .photos {
+  height:600px;
+  min-height:600px;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
   .item{
-    width:300px;
+    width:250px;
     &.w2{
-      width:450px;
+      width:500px;
     }
   }
   .masonryContainer{
-    //height:auto !important;
-    /*  .masonry-brick.loaded img{
-          opacity: 1;
-        }*/
     img.showPhoto{
       opacity:1;
     }
     img {
-      width: 100%;
+/*      max-width:250px;*/
       opacity: 0;
       -webkit-transition: all 0.5s ease-in-out 0.1s;
       -moz-transition: all 0.5s ease-in-out 0.1s;
@@ -73,36 +76,4 @@
 
 .projects {
   height: 400px;
-}
-
-@media (max-width: @screen-xs-max) {
-  .home {
-    height: 300px !important;
-  }
-
-  .homeCard {
-    font-size: 1.7em;
-  }
-}
-
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-  .home {
-    height: 350px !important;
-  }
-
-  .homeCard {
-    font-size: 2.0em;
-  }
-}
-
-@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-  .homeCard {
-    font-size: 2.6em;
-  }
-}
-
-@media (min-width: 1201px) {
-  .homeCard {
-    font-size: 3.1em;
-  }
 }

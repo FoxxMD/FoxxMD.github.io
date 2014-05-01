@@ -5,27 +5,34 @@ angular.module('app.directives', ['wu.masonry'])
             templateUrl: '/app/templates/photos.html',
             controller:function($scope){
                 $scope.bricks = [
-                    {src: "http://lorempixel.com/300/400/"},
-                    {type:'w2', src: "http://lorempixel.com/450/300/"},
-                    {type:'w2', src: "http://lorempixel.com/450/300/"},
-                    {src: "http://lorempixel.com/300/400/"},
-                    {src: "http://lorempixel.com/300/350/"},
-                    {type:'w2', src: "http://lorempixel.com/450/350/"},
-                    {src: "http://lorempixel.com/300/300/"},
-                    {src: "http://lorempixel.com/300/200/"},
-                    {type:'w2', src: "http://lorempixel.com/450/350/"},
-                    {type:'w2', src: "http://lorempixel.com/450/350/"}
+                    {src: "http://lorempixel.com/250/300/"},
+                    {type:'w2', src: "http://lorempixel.com/500/350/"},
+                    {type:'', src: "http://lorempixel.com/250/300/"},
+                    {src: "http://lorempixel.com/250/150/"},
+                    {src: "http://lorempixel.com/250/350/"},
+                    {type:'w2', src: "http://lorempixel.com/500/250/"},
+                    {src: "http://lorempixel.com/250/300/"},
+                    {src: "http://lorempixel.com/250/200/"},
+                    {type:'w2', src: "http://lorempixel.com/500/300/"},
+                    {type:'', src: "http://lorempixel.com/250/150/"}
                 ];
             },
             link: function (scope, element, attrs) {
 
-                var height = '400px';
-                var photos = $('.showcasePane');
-                photos.css('height', height);
+                var photos = $('.showcasePane'),
+                    showcaseHeight = photos.innerHeight();
 
                 scope.$on('$destroy', function() {
                     $(element).find('img').removeClass('showPhoto');
-                    photos.css('height','400px');
+                    photos.removeAttr('style');
+                });
+                scope.$on('masonry.layoutComplete', function(event, message){
+                    message = message + 100;
+                    if(showcaseHeight < message)
+                    {
+                        $('.showcasePane').css('height', message);
+                    }
+
                 });
 
                 function shuffle(array) {
@@ -42,7 +49,6 @@ angular.module('app.directives', ['wu.masonry'])
                 }
 
                 scope.$on('allImagesLoaded',function(){
-                        $('.showcasePane').css('height', $(element).height());
                         ranImages = shuffle($(element[0]).find('img'));
                         $timeout(function () {
                             ranImages.each(function (index, item) {
