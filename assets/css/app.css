@@ -185,21 +185,59 @@ li a {
   }
 }
 @media (min-width: 1201px) {
+  /*  .grid-sizer {
+    width: 20% !important;
+  }
+
+  .masonry-brick {
+    width: 20% !important;
+    &.wide {
+      width: 40% !important;
+    }
+  }*/
   .homeCard {
     font-size: 3.1em;
   }
 }
 @media (min-width: 1400px) {
+  /*  .grid-sizer {
+    width: 20% !important;
+  }
+
+  .masonry-brick {
+    width: 20% !important;
+    &.wide {
+      width: 40% !important;
+    }
+  }*/
   .container.photos {
     width: 1350px;
   }
 }
 @media (min-width: 1600px) {
+  .grid-sizer {
+    width: 20% !important;
+  }
+  .masonry-brick {
+    width: 20% !important;
+  }
+  .masonry-brick.wide {
+    width: 40% !important;
+  }
   .container.photos {
     width: 1550px;
   }
 }
 @media (min-width: 1800px) {
+  .grid-sizer {
+    width: 20% !important;
+  }
+  .masonry-brick {
+    width: 20% !important;
+  }
+  .masonry-brick.wide {
+    width: 40% !important;
+  }
   .container.photos {
     width: 1750px;
   }
