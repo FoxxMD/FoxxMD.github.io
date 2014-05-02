@@ -1,6 +1,7 @@
-<div masonry="{'gutter':20}" column-width="250" class="masonryContainer">
-    <div class="masonry-brick" ng-repeat="brick in bricks">
-        <img class="item {{brick.type}}" ng-src="{{brick.src}}"/>
+<div masonry column-width=".grid-sizer" class="masonryContainer">
+    <div class="grid-sizer"></div>
+    <div class="masonry-brick {{brick.type}}" ng-repeat="brick in bricks">
+        <a ng-href="{{brick.src}}"><img ng-src="{{brick.src}}"/></a>
     </div>
 </div>
 
