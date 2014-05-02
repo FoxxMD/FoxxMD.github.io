@@ -68,6 +68,9 @@ angular.module('app.directives', ['wu.masonry'])
                                 usePopupNav: true,
                                 popupPadding: 0
                             });
+                            $timeout(function(){
+                                $('.masonryContainer').masonry('layout');
+                            },1000);
                         }, 0);
                     }
                     },700);
