@@ -5,21 +5,19 @@ angular.module('app.directives', ['wu.masonry'])
             templateUrl: '/app/templates/photos.html',
             controller:function($scope){
                 $scope.bricks = [
-                    {src: "http://th01.deviantart.net/fs70/PRE/f/2012/362/9/4/watch_me_by_matthewfoxxphotos-d5pge3s.jpg"},
-                    {type:'w2', src: "http://lorempixel.com/800/500/"},
-                    {type:'', src: "http://lorempixel.com/600/800/"},
-                    {src: "http://lorempixel.com/500/700/"},
-                    {type:'w2', src: "http://lorempixel.com/800/550/"},
-                    {type:'w2', src: "http://lorempixel.com/900/600/"},
-                    {src: "http://lorempixel.com/400/600/"},
-                    {src: "http://lorempixel.com/500/700/"},
-                    {type:'w2', src: "http://lorempixel.com/700/500/"},
-                    {type:'', src: "http://lorempixel.com/500/750/"}
+                    {type: 'wide', cat:'people', thumbSrc: "http://th01.deviantart.net/fs70/PRE/f/2012/362/9/4/watch_me_by_matthewfoxxphotos-d5pge3s.jpg"},
+                    {cat:'people', thumbSrc: "http://th01.deviantart.net/fs70/PRE/f/2013/067/a/4/vintage_shopping_by_matthewfoxxphotos-d5xe74c.jpg"},
+                    {thumbSrc: "http://lorempixel.com/600/800/"},
+                    {thumbSrc: "http://lorempixel.com/500/700/"},
+                    {type:'wide', thumbSrc: "http://lorempixel.com/800/550/"},
+                    {type:'wide', thumbSrc: "http://lorempixel.com/900/600/"},
+                    {thumbSrc: "http://lorempixel.com/400/600/"},
+                    {thumbSrc: "http://lorempixel.com/500/700/"},
+                    {type:'wide', thumbSrc: "http://lorempixel.com/700/500/"},
+                    {thumbSrc: "http://lorempixel.com/500/750/"}
                 ];
             },
             link: function (scope, element, attrs) {
-
-
 
                 var photos = $('.showcasePane'),
                     showcaseHeight = photos.innerHeight();
@@ -30,7 +28,7 @@ angular.module('app.directives', ['wu.masonry'])
                 });
                 var imagesLoaded = false;
                 scope.$on('masonry.layoutComplete', function(event, message){
-                    message = message + 100;
+                    message = message + 200;
                     if(showImages){
                         $timeout.cancel(showImages);
                     }
@@ -38,7 +36,7 @@ angular.module('app.directives', ['wu.masonry'])
                         if (!imagesLoaded)
                         {
                             imagesLoaded = true;
-                            ranImages = shuffle($(element[0]).find('img'));
+                            ranImages = shuffle($(element).find('img'));
                         $timeout(function () {
                             ranImages.each(function (index, item) {
                                 var waittime = Math.floor((Math.random() * 100) + 100);

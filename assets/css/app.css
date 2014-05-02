@@ -242,7 +242,7 @@ li a {
   padding: 10px;
   width: 25%;
 }
-.showcasePane.photos .masonry-brick.w2 {
+.showcasePane.photos .masonry-brick.wide {
   width: 50%;
 }
 .showcasePane.photos .masonry-brick:hover {
@@ -270,6 +270,17 @@ li a {
   -ms-transform: scale(1.2);
   -o-transform: scale(1.2);
   transform: scale(1.2);
+}
+.showcasePane.photos .filterBtnGroup .btn-link {
+  color: #2f2f2f;
+  font-size: 1.7em;
+}
+.showcasePane.photos .filterBtnGroup .btn-link:hover {
+  text-decoration: none;
+  color: #c02942;
+}
+.showcasePane.photos .filterBtnGroup .btn-link.active {
+  color: #c02942;
 }
 .showcasePane.projects {
   height: 400px;
