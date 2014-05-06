@@ -25,7 +25,16 @@ app.config(['$stateProvider', '$urlRouterProvider',
             .state('photos',{
                 template:'<div photos-dir></div>',
                 url:'/photos',
-                parent:'index'
+                parent:'index',
+                resolve:{
+                    dependencies: function($q){
+                        var deferred = $q.defer();
+                        $script.ready('masonryResouces',function(){
+                            deferred.resolve('ok');
+                        });
+                        return deferred.promise;
+                    }
+                }
             })
             .state('projects',{
                 templateUrl:'/app/templates/projects.html',
