@@ -29,7 +29,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
                 resolve:{
                     dependencies: function($q){
                         var deferred = $q.defer();
-                        $script.ready('masonryResouces',function(){
+                        $script.ready('masonryResources',function(){
                             deferred.resolve('ok');
                         });
                         return deferred.promise;

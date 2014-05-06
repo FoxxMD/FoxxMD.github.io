@@ -11,15 +11,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <script type="text/javascript" src="assets/js/script.js"></script>
     <script type="text/javascript">
-        $script([   'assets/js/jquery.min.js',
-                    'assets/js/angular/angular.min.js'
-/*                    'assets/js/masonry.pkgd.min.js'*/],
-                function () {
-                    getApp();
-                });
-        $script('assets/js/masonry.pkgd.min.js',function(){
-           $script('assets/js/imagesloaded.js','masonryResouces');
-        });
+            $script(['assets/js/jquery.min.js',
+                        'assets/js/angular/angular.min.js'],
+                    function () {
+                        getApp();
+                    });
+
+            $script('assets/js/masonry.pkgd.js',function(){
+                $script('assets/js/imagesloaded.js','masonryResources');
+            });
+
         function getApp() {
             $script([
                 'assets/js/bootstrap.min.js',
