@@ -41,7 +41,7 @@
             $element.masonry.apply($element, args);
           });
           schedule = [];
-        }, 30);
+        }, 50);
       };
       function defaultLoaded($element) {
         $element.addClass('loaded');
@@ -60,6 +60,7 @@
             defaultLoaded(element);
             $element.masonry('appended', element, true);
           }
+            self.scheduleMasonryOnce('reloadItems');
         }
         function _layout() {
           // I wanted to make this dynamic but ran into huuuge memory leaks
@@ -87,14 +88,13 @@
         }
         delete bricks[id];
         $element.masonry('remove', element);
+        this.scheduleMasonryOnce('reloadItems');
         this.scheduleMasonryOnce('layout');
       };
       this.destroy = function destroy() {
         destroyed = true;
         if ($element.data('masonry')) {
           // Gently uninitialize if still present
-          $($element).css('overflow-y','hidden');
-            $($element).find('img').css('opacity','0');
           $element.masonry('destroy');
         }
         $scope.$emit('masonry.destroyed');
