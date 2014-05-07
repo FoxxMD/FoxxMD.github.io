@@ -52,12 +52,22 @@ app.config(['$stateProvider', '$urlRouterProvider',
         $urlRouterProvider.otherwise('404');
     }]);
 
-/*app.run(function ($rootScope) {
-    $rootScope.$on('$stateChangeSuccess',
-        function (event, toState, toParams, fromState, fromParams) {
-
-        });
-});*/
+app.run(function ($rootScope, $state) {
+    $(window).resize(function(){
+        var showcase = $('.showcasePane'),
+            content = $('.contentPane');
+        if($state.current.name != 'photos')
+        {
+            if(showcase.innerHeight() < content.outerHeight())
+            {
+                showcase.css('height', content.outerHeight());
+            }
+        }
+        else{
+            showcase.removeAttr('style');
+        }
+    });
+});
 
 
 /*

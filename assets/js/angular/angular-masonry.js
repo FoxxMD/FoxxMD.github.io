@@ -57,7 +57,7 @@
           if (bricks[id] === undefined) {
             // Keep track of added elements.
             bricks[id] = true;
-            defaultLoaded(element);
+            //defaultLoaded(element);
             $element.masonry('appended', element, true);
           }
             self.scheduleMasonryOnce('reloadItems');
@@ -69,6 +69,7 @@
           // please submit a pull request!
           self.scheduleMasonryOnce('layout');
         }
+
         if (!self.loadImages) {
           _append();
           _layout();
@@ -76,10 +77,14 @@
           _append();
           element.imagesLoaded(_layout);
         } else {
-          element.imagesLoaded(function imagesLoaded() {
-            _append();
-            _layout();
-          });
+          element.imagesLoaded()
+              .always(function(instance){
+                  _append();
+                  _layout();
+              })
+              .progress(function(instance, image){
+                  defaultLoaded(element);
+              });
         }
       };
       this.removeBrick = function removeBrick(id, element) {
@@ -123,11 +128,6 @@
           ctrl.preserveOrder = preserveOrder !== false && attrs.preserveOrder !== undefined;
           scope.$emit('masonry.created', element);
           scope.$on('$destroy', ctrl.destroy);
-
-            element.masonry('on','layoutComplete', function(instance, items) {
-               scope.$emit('masonry.layoutComplete', instance.size.height);
-            });
-
         }
       }
     };

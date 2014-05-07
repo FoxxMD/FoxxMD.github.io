@@ -49,7 +49,6 @@ angular.module('app.directives', ['wu.masonry'])
             link: function (scope, element, attrs) {
 
                 var photos = $('.showcasePane'),
-                    showcaseHeight = photos.innerHeight(),
                     gallery = $(element).find('.masonryContainer');
 
                var sChangeOff =  $rootScope.$on('$stateChangeSuccess', function(){
@@ -63,35 +62,25 @@ angular.module('app.directives', ['wu.masonry'])
                 });
 
                 scope.imagesLoaded = false;
-                scope.$on('masonry.layoutComplete', function (event, message) {
-                    message = message + 200;
+
+                gallery.masonry('on','layoutComplete', function(instance, items) {
                     $timeout.cancel(scope.showImages);
                     scope.showImages = $timeout(function () {
                         if (!scope.imagesLoaded) {
                             scope.imagesLoaded = true;
-                            ranImages = shuffle($(element).find('img'));
                             $timeout(function () {
-                                ranImages.each(function (index, item) {
-                                    var waittime = Math.floor((Math.random() * 100) + 100);
-                                    $timeout(function () {
-                                        $(item).addClass('showPhoto');
-                                    }, waittime);
-                                });
                                 $timeout(function () {
-                                    $('.masonryContainer').masonry('layout');
-                                    if (showcaseHeight !== message) {
-                                        $('.showcasePane').css('height', message);
-                                    }
+                                    gallery.masonry('layout');
+                                    photos.css('height', gallery.outerHeight()+200);
                                 }, 700);
                             }, 0);
+                            $('.poptrox-popup').remove();
                             gallery.poptrox({
                                 usePopupNav: true,
                                 popupPadding: 0
                             });
                         }
-                        if (showcaseHeight !== message) {
-                            $('.showcasePane').css('height', message);
-                        }
+                        photos.css('height', gallery.outerHeight()+200);
                     }, 500);
                 });
 
@@ -108,22 +97,8 @@ angular.module('app.directives', ['wu.masonry'])
 
                 scope.changeFilter = function (filterName) {
                     scope.selectedFilter = filterName;
-                    $(element).find('img').removeClass('showPhoto');
                     scope.imagesLoaded = false;
                 };
-
-                function shuffle(array) {
-                    var tmp, current, top = array.length;
-
-                    if (top) while (--top) {
-                        current = Math.floor(Math.random() * (top + 1));
-                        tmp = array[current];
-                        array[current] = array[top];
-                        array[top] = tmp;
-                    }
-
-                    return array;
-                }
             }
         };
         return directive;
