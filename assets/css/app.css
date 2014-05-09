@@ -1,11 +1,3 @@
-/*@theme-text-color: rgb(232,213,183);
-@theme-link-color: rgb(252,58,81);
-@theme-link-hover-color: lighten(@theme-link-color,10%);
-
-@themeBackground: rgb(14,36,48);
-@themeDarkPrimary: rgb(0,116,142);
-@themeLightPrimary: rgb(252,58,81);
-@themeLightPrimaryAlternate: rgb(248,148,6);*/
 body.triangle {
   background-size: cover;
   color: #000000;
@@ -26,6 +18,18 @@ body.triangle h5 {
 body.sourcesans {
   font-family: 'Source Sans Pro', 'sans-serif' !important;
   font-weight: 300 !important;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url('../fonts/SourceSansPro-Light.woff') format('woff');
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url('../fonts/SourceSansPro-Regular.woff') format('woff');
 }
 body.sourcesans h1,
 body.sourcesans h2,

@@ -75,9 +75,11 @@ angular.module('app.directives', ['wu.masonry'])
                                 }, 700);
                             }, 0);
                             $('.poptrox-popup').remove();
-                            gallery.poptrox({
-                                usePopupNav: true,
-                                popupPadding: 0
+                            $script.ready('poptrox',function(){
+                                gallery.poptrox({
+                                    usePopupNav: true,
+                                    popupPadding: 0
+                                });
                             });
                         }
                         photos.css('height', gallery.outerHeight()+200);

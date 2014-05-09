@@ -7,25 +7,17 @@ app.config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
 
         $stateProvider
-            .state('index', {
-                templateUrl: '/app/templates/shared/skeleton.html',
-                controller:'cnc',
-                abstract: true
-            })
             .state('home', {
                 templateUrl: '/app/templates/home.html',
-                url: '/',
-                parent: 'index'
+                url: '/'
             })
             .state('work',{
                 templateUrl:'/app/templates/work.html',
-                url:'/work',
-                parent:'index'
+                url:'/work'
             })
             .state('photos',{
                 template:'<div photos-dir></div>',
                 url:'/photos',
-                parent:'index',
                 resolve:{
                     dependencies: function($q){
                         var deferred = $q.defer();
@@ -38,13 +30,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
             })
             .state('projects',{
                 templateUrl:'/app/templates/projects.html',
-                url:'/projects',
-                parent:'index'
+                url:'/projects'
             })
             .state('404', {
                 templateUrl: 'app/templates/shared/404.html',
-                url: '/404',
-                parent: 'index'
+                url: '/404'
             });
         //make sure root goes to home state
         $urlRouterProvider.when('', '/');

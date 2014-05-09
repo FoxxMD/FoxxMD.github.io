@@ -2,3 +2,5 @@ bower_components
 Gemfile
 Gemfile.lock
 .idea/
+node_modules/
+web.config
