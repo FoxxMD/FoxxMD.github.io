@@ -1,0 +1,28 @@
+{
+  "name": "FoxxMD.github.io",
+  "version": "0.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.4",
+    "grunt-cli": "~0.1.13",
+    "npm": "~1.4.10"
+  },
+  "devDependencies": {
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-uncss": "~0.3.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FoxxMD/FoxxMD.github.io.git"
+  },
+  "author": "FoxxMD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FoxxMD/FoxxMD.github.io/issues"
+  },
+  "homepage": "https://matthewfoxx.com"
+}
