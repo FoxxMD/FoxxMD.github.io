@@ -62,7 +62,7 @@ app.run(function ($rootScope, $state) {
 
 /*
 
- ============== Controllers ==================
+ ============== Controllers ================
 
  */
 

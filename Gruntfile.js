@@ -18,12 +18,19 @@ module.exports = function(grunt)
                     'assets/css/combinedCss.css':['assets/css/tidyB.css','assets/css/angular.css','assets/css/app.css']
                 }
             }
+        },
+        concat:{
+            dist:{
+                src:['app/app.js','app/directives.js'],
+                dest:'app/app-concat.js'
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('default', ['uncss','cssmin']);
+    grunt.registerTask('default', ['uncss','cssmin','concat']);
 };
 
