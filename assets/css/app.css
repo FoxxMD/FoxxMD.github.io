@@ -250,7 +250,7 @@ li a {
   overflow-y: hidden;
   height: auto;
 }
-.showcasePane img.logo {
+.showcasePane object.logo {
   max-width: 339px;
   width: 100%;
 }
