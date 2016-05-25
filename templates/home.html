@@ -9,7 +9,11 @@
   {{contents | safe}}
   </article>
 </div>
-
+<div>
+  {% if site.show_social_icons %}
+  {% include "partials/social.html" %}
+  {% endif %}
+</div>
 {% if collections.posts.length > 0 %}
   <div class="posts">
     <div class="post">

@@ -2,6 +2,7 @@ var config = {
   production: {
     baseUrl: process.env.BASE_URL || '', // '' for relative links
     site: {
+      show_social_icons: true,
       url: process.env.SITE_URL || 'http://example.com', // full site url
       title: 'Matt Foxx Dev',
       comments: true,
@@ -12,6 +13,7 @@ var config = {
   development: {
     baseUrl: process.env.DEV_BASE_URL || '', // '' for relative links
     site: {
+      show_social_icons: true,
       url: process.env.DEV_SITE_URL || 'http://localhost:7000', // full site url
       title: 'Matt Foxx',
       comments: true,
@@ -20,8 +22,8 @@ var config = {
     }
   },
   social: {
-    github_username: '',
-    stackoverflow_id: '',
+    github_username: 'FoxxMD',
+    stackoverflow_id: '1469797',
     twitter_username: '',
     google_plus_id: '',
     email: '',

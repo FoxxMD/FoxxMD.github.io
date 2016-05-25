@@ -104,7 +104,7 @@ module.exports = function (production) {
         lastModified: Date.now()
       }
     }))
-    .use(htmlMinifier())
+    //.use(htmlMinifier())
     .destination('build/')
     .build(function(err,files){
       if (err){ console.log(err); }
