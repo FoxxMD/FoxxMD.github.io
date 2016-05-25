@@ -1,29 +1,33 @@
 {
-  "name": "FoxxMD.github.io",
-  "version": "0.0.0",
-  "description": "",
-  "main": "Gruntfile.js",
-  "dependencies": {
-    "grunt": "~0.4.4",
-    "grunt-cli": "~0.1.13",
-    "npm": "~1.4.10"
-  },
+  "name": "Matt Foxx Website",
+  "private": "true",
+  "version": "0.1.0",
+  "description": "Built with Metalsmith & yo ironsmith",
+  "dependencies": {},
   "devDependencies": {
-    "grunt-contrib-cssmin": "~0.9.0",
-    "grunt-uncss": "~0.3.3",
-    "grunt-contrib-concat": "~0.4.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/FoxxMD/FoxxMD.github.io.git"
-  },
-  "author": "FoxxMD",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/FoxxMD/FoxxMD.github.io/issues"
-  },
-  "homepage": "https://matthewfoxx.com"
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-front-matter": "^1.2.3",
+    "gulp-gh-pages": "^0.5.2",
+    "gulp-sass": "^2.0.1",
+    "gulp-uglify": "^1.2.0",
+    "lodash.assign": "^3.2.0",
+    "metalsmith": "^1.0.1",
+    "metalsmith-better-excerpts": "^0.1.5",
+    "metalsmith-collections": "^0.6.0",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-feed": "0.0.6",
+    "metalsmith-html-minifier": "^1.1.0",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-metadata": "0.0.1",
+    "metalsmith-metallic": "^0.3.1",
+    "metalsmith-pagination": "^1.0.0",
+    "metalsmith-permalinks": "^0.4.0",
+    "metalsmith-sitemap": "^0.1.0",
+    "metalsmith-tags": "^0.9.1",
+    "metalsmith-templates": "^0.7.0",
+    "metalsmith-writemetadata": "0.4.4",
+    "swig": "^1.4.2"
+  }
 }

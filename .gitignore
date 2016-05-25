@@ -1,6 +1,4 @@
-bower_components
-Gemfile
-Gemfile.lock
+build/
+.publish/
 .idea/
-node_modules/
-web.config
+/node_modules/
