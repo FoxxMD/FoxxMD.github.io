@@ -2,7 +2,7 @@
   <div class="mt2 wrap">
     <div class="measure">
       <object class="logo" type="image/svg+xml" data="/images/MFlogo.svg"><img class="logo" src="images/foxxLogo.png"></object>
-      <div class="headerNavigationWrapper">
+     <!-- <div class="headerNavigationWrapper">-->
       <a href="{{ baseUrl }}/" class="site-title">{{site.title}}</a>
       <nav class="site-nav right">
         <a href="{{ baseUrl }}/blog">Blog</a>
@@ -10,7 +10,7 @@
         {%- if post.priority > 1 %}<a href="{{ baseUrl }}/{{post.path}}">{{post.linkTitle}}</a>{% endif -%}
       {% endfor -%}
       </nav>
-        </div>
+        <!--</div>-->
       <div class="clearfix"></div>
       {% if site.show_social_icons %}
         {% include social_links.html %}
