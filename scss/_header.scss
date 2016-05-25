@@ -26,6 +26,9 @@
   .site-header .site-title {
     padding-left:40px;
   }
+  .mt2.wrap {
+    padding: 1rem 1.5rem 1rem 1.5rem;
+  }
 }
 
 @media screen and (max-width: 48em) {
@@ -38,10 +41,18 @@
     margin-top: unset;
     margin-bottom: unset;
   }
+
+  .mt2.wrap {
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  }
 }
 
 .site-header {
   background: white;
+  position: fixed;
+  width: 100%;
+  padding: 0;
+  z-index:9999;
 }
 
 .measure {
@@ -50,5 +61,4 @@
 
 .mt2.wrap {
   margin-top:0;
-  padding: 1rem 0 1rem 0;
 }
