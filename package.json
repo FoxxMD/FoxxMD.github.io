@@ -81,6 +81,7 @@
     "gatsby-transformer-remark": "^1.7.35",
     "gatsby-transformer-sharp": "^1.6.16",
     "instantsearch.css": "^7.0.0",
+    "lodash": "^4.17.5",
     "material-ui": "1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.17",
     "react-custom-scrollbars": "^4.2.1",

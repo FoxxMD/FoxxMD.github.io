@@ -6,6 +6,7 @@ const path = require("path");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { store } = require(`./node_modules/gatsby/dist/redux`);
 const fastExif = require('fast-exif');
+const get = require('lodash/get');
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
@@ -27,14 +28,14 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       const absolutePath = node.id.split(' ')[0];
       fastExif.read(absolutePath)
         .then((exifData) => {
-          const title = exifData.image.ImageDescription || null;
-              const location = exifData.image.DocumentName || null;
-              const categoryData = exifData.exif.ImageHistory || null;
-              const categories = categoryData === null ? ['uncategorized'] : categoryData.split(',');
-              const iso  = exifData.exif.ISO || null;
-              const model = exifData.exif.LensModel || null;
-              const fstop = exifData.exif.FNumber | null;
-              const focalLength = exifData.exif.FocalLength || null;
+          const title        = get( exifData, [ 'image', 'ImageDescription' ], null );
+          const location     = get( exifData, [ 'image', 'DocumentName' ], null );
+          const categoryData = get( exifData, [ 'exif', 'ImageHistory' ], null );
+          const categories   = categoryData === null ? [ 'uncategorized' ] : categoryData.split( ',' );
+          const iso          = get( exifData, [ 'exif', 'ISO' ], null );
+          const model        = get( exifData, [ 'exif', 'LensModel' ], null );
+          const fstop        = get( exifData, [ 'exif', 'FNumber' ], null );
+          const focalLength  = get( exifData, [ 'exif', 'FocalLength' ], null );
 
               createNodeField({
                 node,
