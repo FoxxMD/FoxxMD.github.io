@@ -56,10 +56,10 @@ class InfoMenu extends React.Component {
             </Link>
           );
         })}
-        <a style={{cursor: 'pointer'}} onClick={this.blogOnClick} className={classes.link} data-shape="open">Blog</a>
         <Link to="/photos/" onClick={linkOnClick} className={classes.link} data-shape="closed">
           Photos
         </Link>
+        <a style={{cursor: 'pointer'}} onClick={this.blogOnClick} className={classes.link} data-shape="open">Blog</a>
         <Link to="/contact/" onClick={linkOnClick} className={classes.link} data-shape="closed">
           Contact
         </Link>
