@@ -13,9 +13,11 @@ class PageTemplate extends React.Component {
   moveNavigatorAside = moveNavigatorAside.bind(this);
 
   componentDidMount() {
-    if (this.props.navigatorPosition === "is-featured") {
-      this.moveNavigatorAside();
-    }
+    this.moveNavigatorAside();
+    this.props.setNavigatorShape('closed');
+    /*if (this.props.navigatorPosition === "is-featured") {
+    
+    }*/
   }
 
   render() {

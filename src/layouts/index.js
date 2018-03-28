@@ -194,6 +194,11 @@ export const guery = graphql`
               height
               src
             },
+            sizes(maxWidth: 1600) {
+              src,
+              srcSet,
+              sizes
+            }
             fields {
               exif {
                 title
