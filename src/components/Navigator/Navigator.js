@@ -108,7 +108,7 @@ class Navigator extends React.Component {
   };
 
   removefilterOnClick = e => {
-    this.props.setCategoryFilter("all posts");
+    this.props.setCategoryFilter('blog', 'all posts');
   };
 
   render() {
@@ -153,7 +153,7 @@ const mapStateToProps = (state, ownProps) => {
     navigatorPosition: state.navigatorPosition,
     navigatorShape: state.navigatorShape,
     isWideScreen: state.isWideScreen,
-    categoryFilter: state.categoryFilter
+    categoryFilter: state.categoryBlogFilter,
   };
 };
 

@@ -119,12 +119,12 @@ class ActionsBar extends React.Component {
     }
   };
 
-  categoryFilterOnClick = val => {
-    this.props.setCategoryFilter(val);
+  categoryFilterOnClick = (type, val) => {
+    this.props.setCategoryFilter(type, val);
   };
 
   render() {
-    const { classes, navigatorPosition, navigatorShape, isWideScreen, categories } = this.props;
+    const { classes, navigatorPosition, navigatorShape, isWideScreen, blogCategories, photoCategories, photosOpen } = this.props;
 
     return (
       <div className={classes.actionsBar}>
@@ -132,8 +132,11 @@ class ActionsBar extends React.Component {
           <IconButton aria-label="Back to list" onClick={this.homeOnClick} title="Back to the list">
             <HomeIcon />
           </IconButton>
-          {((isWideScreen && navigatorShape === "open") || navigatorPosition !== "is-aside") && (
-            <CategoryFilter categories={categories} filterCategory={this.categoryFilterOnClick} />
+          {((isWideScreen && navigatorShape === "open") || navigatorPosition !== "is-aside" || photosOpen) && (
+            <CategoryFilter blogCategories={blogCategories}
+                            photoCategories={photoCategories}
+                            photosOpen={photosOpen}
+                            filterCategory={(type, val) => this.categoryFilterOnClick(type, val)}/>
           )}
           <IconButton
             aria-label="Search"
@@ -173,9 +176,11 @@ ActionsBar.propTypes = {
   isWideScreen: PropTypes.bool.isRequired,
   setScrollToTop: PropTypes.func.isRequired,
   setFontSizeIncrease: PropTypes.func.isRequired,
-  categories: PropTypes.array.isRequired,
+  blogCategories: PropTypes.array.isRequired,
+  photoCategories: PropTypes.array.isRequired,
   setCategoryFilter: PropTypes.func.isRequired,
-  categoryFilter: PropTypes.string.isRequired
+  categoryBlogFilter: PropTypes.string.isRequired,
+  categoryPhotoFilter: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -183,7 +188,9 @@ const mapStateToProps = (state, ownProps) => {
     navigatorPosition: state.navigatorPosition,
     navigatorShape: state.navigatorShape,
     isWideScreen: state.isWideScreen,
-    categoryFilter: state.categoryFilter
+    categoryBlogFilter: state.categoryBlogFilter,
+    categoryPhotoFilter: state.categoryPhotoFilter,
+    photosOpen: state.photosOpen
   };
 };
 

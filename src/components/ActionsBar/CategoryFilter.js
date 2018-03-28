@@ -56,14 +56,40 @@ class CategoryFilter extends React.Component {
     });
   };
 
-  handleFiltering = e => {
+  handleFiltering = (type, e) => {
     const category = e.target.innerText.trim();
-    this.props.filterCategory(category);
+    this.props.filterCategory(type, category);
     this.handleClose();
   };
+  
+  generateBlogCategories = () => {
+    return (<MenuList role="menu">
+      <MenuItem key="all" onClick={(e) => this.handleFiltering('blog', e)}>
+        all posts
+      </MenuItem>
+      {this.props.blogCategories.map(category => (
+        <MenuItem key={category} onClick={(e) => this.handleFiltering('blog', e)}>
+          {category}
+        </MenuItem>
+      ))}
+    </MenuList>);
+  }
+  
+  generatePhotoCategories = () => {
+    return (<MenuList role="menu">
+      <MenuItem key="all" onClick={(e) => this.handleFiltering('photos', e)}>
+        all photos
+      </MenuItem>
+      {this.props.photoCategories.map(category => (
+        <MenuItem key={category} onClick={(e) => this.handleFiltering('photos', e)}>
+          {category}
+        </MenuItem>
+      ))}
+    </MenuList>)
+  }
 
   render() {
-    const { classes, categories } = this.props;
+    const { classes, photosOpen } = this.props;
     const { anchorEl, open } = this.state;
 
     return (
@@ -88,16 +114,7 @@ class CategoryFilter extends React.Component {
             <ClickAwayListener onClickAway={this.handleClose}>
               <Grow in={open} id="cat-menu-list" style={{ transformOrigin: "0 0 0" }}>
                 <Paper>
-                  <MenuList role="menu">
-                    <MenuItem key="all" onClick={this.handleFiltering}>
-                      all posts
-                    </MenuItem>
-                    {categories.map(category => (
-                      <MenuItem key={category} onClick={this.handleFiltering}>
-                        {category}
-                      </MenuItem>
-                    ))}
-                  </MenuList>
+                  {photosOpen ? this.generatePhotoCategories() : this.generateBlogCategories()}
                 </Paper>
               </Grow>
             </ClickAwayListener>
@@ -110,8 +127,9 @@ class CategoryFilter extends React.Component {
 
 CategoryFilter.propTypes = {
   classes: PropTypes.object.isRequired,
-  categories: PropTypes.array.isRequired,
-  filterCategory: PropTypes.func.isRequired
+  blogCategories: PropTypes.array.isRequired,
+  photoCategories: PropTypes.array.isRequired,
+  filterCategory: PropTypes.func.isRequired,
 };
 
 export default injectSheet(styles)(CategoryFilter);

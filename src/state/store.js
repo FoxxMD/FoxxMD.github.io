@@ -12,6 +12,7 @@ const SET_IS_WIDE_SCREEN = "SET_IS_WIDE_SCREEN";
 const SET_SCROLL_TO_TOP = "SET_SCROLL_TO_TOP";
 const SET_FONT_SIZE_INCREASE = "SET_FONT_SIZE_INCREASE";
 const SET_CATEGORY_FILTER = "SET_CATEGORY_FILTER";
+const SET_PHOTOS_OPEN = "SET_PHOTOS_OPEN";
 
 /*
  * action creators
@@ -41,8 +42,12 @@ export function setFontSizeIncrease(val) {
   return { type: SET_FONT_SIZE_INCREASE, val };
 }
 
-export function setCategoryFilter(val) {
-  return { type: SET_CATEGORY_FILTER, val };
+export function setCategoryFilter(catType, val) {
+  return { type: SET_CATEGORY_FILTER, catType, val };
+}
+
+export function setPhotosOpen(val) {
+  return {type: SET_PHOTOS_OPEN, val}
 }
 
 /*
@@ -87,11 +92,22 @@ const reducer = (state, action) => {
       };
 
     case SET_CATEGORY_FILTER:
+      if(action.catType === 'blog') {
+        return {
+          ...state,
+          categoryBlogFilter: action.val
+        };
+      }
+      
       return {
         ...state,
-        categoryFilter: action.val
+        categoryPhotoFilter: action.val
       };
-
+    case SET_PHOTOS_OPEN:
+      return {
+        ...state,
+        photosOpen: action.val
+      }
     default:
       return state;
   }
@@ -104,7 +120,9 @@ const initialState = {
   isWideScreen: false,
   scrollToTop: false,
   fontSizeIncrease: 1,
-  categoryFilter: "all posts"
+  categoryBlogFilter: "all posts",
+  categoryPhotoFilter: "all photos",
+  photosOpen: false
 };
 
 const createStore = () =>

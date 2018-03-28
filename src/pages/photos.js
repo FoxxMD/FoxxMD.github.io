@@ -8,7 +8,8 @@ import Img from "gatsby-image";
 import styled from 'styled-components';
 
 import Main from "../components/Main/";
-import { setNavigatorPosition, setNavigatorShape } from "../state/store";
+import ListHeader from "../components/Navigator/ListHeader";
+import { setNavigatorPosition, setNavigatorShape, setPhotosOpen, setCategoryFilter } from "../state/store";
 import { moveNavigatorAside } from "../utils/shared";
 
 const Masonry = require( 'react-masonry-component' );
@@ -80,7 +81,16 @@ class Photos extends React.Component {
   componentDidMount(){
     this.moveNavigatorAside();
     this.props.setNavigatorShape( 'closed' );
+    this.props.setPhotosOpen( true );
   }
+  
+  componentWillUnmount(){
+    this.props.setPhotosOpen( false );
+  }
+  
+  removeFilterOnClick = e =>{
+    this.props.setCategoryFilter( "photos", "all photos" );
+  };
   
   openLightbox = ( index ) =>{
     this.setState( {
@@ -125,8 +135,10 @@ class Photos extends React.Component {
   };
   
   render(){
-    const { data: { photos: { edges: images } }, classes } = this.props;
-    const { photoIndex, isOpen }                           = this.state;
+    const { data: { photos: { edges } }, classes, category } = this.props;
+    const { photoIndex, isOpen }                                     = this.state;
+    
+    const images = category === 'all photos' ? edges : edges.filter((edge) => edge.node.fields.exif.categories.includes(category));
     
     const mainSrc    = images[ photoIndex ].node.original.src;
     const nextSrc    = photoIndex + 1 === images.length ? null : images[ (photoIndex + 1)].node.original.src;
@@ -139,6 +151,11 @@ class Photos extends React.Component {
     
     return (
       <Main>
+        <div className={classes.article}>
+          <ListHeader
+            categoryFilter={category}
+            removeFilter={this.removeFilterOnClick}
+          />
         {isOpen && (
           <Lightbox
             mainSrc={mainSrc}
@@ -159,7 +176,6 @@ class Photos extends React.Component {
             }
           />
         )}
-        <div className={classes.article}>
           <Masonry options={masonryOptions}>{children}</Masonry>
         </div>
       </Main>
@@ -177,13 +193,16 @@ Photos.propTypes = {
 const mapStateToProps = ( state, ownProps ) =>{
   return {
     navigatorPosition: state.navigatorPosition,
-    isWideScreen: state.isWideScreen
+    isWideScreen: state.isWideScreen,
+    category: state.categoryPhotoFilter
   };
 };
 
 const mapDispatchToProps = {
   setNavigatorPosition,
-  setNavigatorShape
+  setNavigatorShape,
+  setPhotosOpen,
+  setCategoryFilter,
 };
 
 const composed = compose(

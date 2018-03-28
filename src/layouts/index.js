@@ -34,6 +34,7 @@ const InfoBox = asyncComponent(
 class Layout extends React.Component {
   timeouts   = {};
   categories = [];
+  photoCategories = [];
   
   componentDidMount(){
     this.props.setIsWideScreen( isWideScreen() );
@@ -54,6 +55,7 @@ class Layout extends React.Component {
     }
     
     this.getCategories();
+    this.getPhotoCategories();
   }
   
   getCategories = () =>{
@@ -65,6 +67,21 @@ class Layout extends React.Component {
       else {
         return list;
       }
+    }, [] );
+  };
+  
+  getPhotoCategories = () =>{
+    this.photoCategories = this.props.data.photos.edges.reduce( ( list, edge ) =>{
+      const catArray = edge.node.fields.exif.categories;
+      if(catArray.length > 0) {
+        return catArray.reduce( ( acc, curr ) =>{
+          if(!~acc.indexOf( curr )) {
+            return acc.concat( curr );
+          }
+          return acc;
+        }, list );
+      }
+      return list;
     }, [] );
   };
   
@@ -95,7 +112,7 @@ class Layout extends React.Component {
         >
           {children()}
           <Navigator posts={data.posts.edges}/>
-          <ActionsBar categories={this.categories}/>
+          <ActionsBar blogCategories={this.categories} photoCategories={this.photoCategories}/>
           <InfoBar pages={data.pages.edges} parts={data.parts.edges}/>
           {this.props.isWideScreen && <InfoBox pages={data.pages.edges} parts={data.parts.edges}/>}
         </div>
@@ -186,30 +203,12 @@ export const guery = graphql`
         }
       }
     }
-    pictures: allImageSharp(filter: { id: { regex: "//pictures//" } }) {
+    photos: allImageSharp(filter: { id: { regex: "//pictures//" } }) {
        edges {
           node {
-            original {
-              width
-              height
-              src
-            },
-            sizes(maxWidth: 1600) {
-              src,
-              srcSet,
-              sizes
-            }
             fields {
               exif {
-                title
-                location
                 categories
-                technical {
-                  iso
-                  model
-                  fstop
-                  focalLength
-                }
               }
             }
           }

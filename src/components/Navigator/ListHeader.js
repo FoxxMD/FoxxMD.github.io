@@ -95,8 +95,8 @@ const ListHeader = props => {
           </IconButton>
         </div>
       )}
-      {navigatorShape === "open" &&
-        categoryFilter !== "all posts" && (
+      {
+        !["all posts","all photos"].includes(categoryFilter) && (
           <div className={classes.filter}>
             <small>Active category filter:</small> <strong>{categoryFilter}</strong>
             <IconButton
@@ -115,9 +115,9 @@ const ListHeader = props => {
 
 ListHeader.propTypes = {
   classes: PropTypes.object.isRequired,
-  expandOnClick: PropTypes.func.isRequired,
+  expandOnClick: PropTypes.func,
   categoryFilter: PropTypes.string.isRequired,
-  navigatorShape: PropTypes.string.isRequired,
+  navigatorShape: PropTypes.string,
   removeFilter: PropTypes.func.isRequired
 };
 

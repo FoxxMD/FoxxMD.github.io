@@ -30,7 +30,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
           const title = exifData.image.ImageDescription || null;
               const location = exifData.image.DocumentName || null;
               const categoryData = exifData.exif.ImageHistory || null;
-              const categories = categoryData === null ? null : categoryData.split(',');
+              const categories = categoryData === null ? ['uncategorized'] : categoryData.split(',');
               const iso  = exifData.exif.ISO || null;
               const model = exifData.exif.LensModel || null;
               const fstop = exifData.exif.FNumber | null;
