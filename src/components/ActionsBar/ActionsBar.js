@@ -129,16 +129,16 @@ class ActionsBar extends React.Component {
     return (
       <div className={classes.actionsBar}>
         <div className={classes.group}>
-          <IconButton aria-label="Back to list" onClick={this.homeOnClick} title="Back to the list">
+          <a aria-label="Go To About"  title="Go To About" href="/" style={{ display: "block", color: 'rgba(0, 0, 0, 0.54)' }}>
             <HomeIcon />
-          </IconButton>
+          </a>
           {((isWideScreen && navigatorShape === "open") || navigatorPosition !== "is-aside" || photosOpen) && (
             <CategoryFilter blogCategories={blogCategories}
                             photoCategories={photoCategories}
                             photosOpen={photosOpen}
                             filterCategory={(type, val) => this.categoryFilterOnClick(type, val)}/>
           )}
-          <IconButton
+          {/*<IconButton
             aria-label="Search"
             onClick={this.searchOnClick}
             component={Link}
@@ -147,7 +147,7 @@ class ActionsBar extends React.Component {
             title="Search"
           >
             <SearchIcon />
-          </IconButton>
+          </IconButton>*/}
         </div>
         <div className={classes.group}>
           {navigatorPosition === "is-aside" && <FontSetter increaseFont={this.fontSetterOnClick} />}

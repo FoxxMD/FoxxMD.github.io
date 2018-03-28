@@ -115,7 +115,7 @@ const reducer = (state, action) => {
 
 const initialState = {
   navigatorPosition: "is-aside",
-  navigatorShape: "open",
+  navigatorShape: "closed",
   navigatorFilter: "",
   isWideScreen: false,
   scrollToTop: false,
