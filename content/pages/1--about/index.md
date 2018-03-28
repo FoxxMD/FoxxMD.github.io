@@ -1,41 +1,17 @@
 ---
-title: About
+title: Yo!
 ---
 
-This is a demo site of the [Personal**Blog**](https://github.com/greglobinski/gatsby-starter-personal-blog) [GatsbyJs](https://www.gatsbyjs.org/) starter.
+Hey you've reached my website! Welcome.
 
-The starter is a ready to use, easy to customize 'like theme' starter. It has everything what blog should have and some more.
-
-### Standard features:
-
-* Easy editable content in **Markdown** files (posts, pages and parts)
-* **SEO** (sitemap generation, robot.txt, meta and OpenGraph Tags)
-* **Social** sharing (Twitter, Facebook, Google, LinkedIn)
-* **Comments** (Facebook)
-* **Images** lazy loading and `webp` support (gatsby-image)
-* Post **categories** (post list filtering)
-* Full text **searching** (Algolia)
-* **Contact** form (Netlify form handling)
-* **RSS** feed
-* **PWA** (manifes.json, offline support, favicons)
-* Google **Analytics**
-* **Favicons** generator (node script)
-* **Material UI** (@next)
-
-### Advanced features:
-
-* Easy customizable base **styles** via `theme` object (fonts, colors, sizes)
-* **Components** leazy loading (social sharing, comments)
-* **ESLint** (google config)
-* **Prettier** code styling
-* Custom webpack `CommonsChunkPlugin` settings
-* Webpack `BundleAnalyzerPlugin`
-* Contact **form validation** (react-material-ui-form-validator)
+I hope you'll check out my photos while you're here (they're my favorite). And maybe read some nerdy blog posts when I get around to making them.
 
 ## About me
 
-My name is **Greg**. I am a front-end web developer. I love working with [GatsbyJs](https://www.gatsbyjs.org/). I love the UX it delivers out of the box for the end users and DX it provides to me as a developer. I decided to share the love by contributing in this way, sharing my code as starters. I hope somebody find that useful.
+My name is **Matt Foxx Duncan**. I am a full-stack developer by day and a hobbyist photographer when I'm not staring at a screen. Currently I reside in **Atlanta, Georgia** where I bicycle way more than drive. Hip-hop, jazz, and electronic sounds in any combination make me smile.
 
-For sure it's not my last [Gatsby starter](/starters). If you want to be in touch follow my on Twitter [@greglobinski](https://twitter.com/greglobinski)
+I work for **[Fulfillment.com](https://www.fulfillment.com/)** as an in-house **Senior Developer** and battle the chaos of package logistics on a daily basis. These days I work primarily with Javascript in [ReactJS](https://reactjs.org)/[Redux](https://redux.js.org/) and [PHP](http://www.php.net/) though I dabble in anything that can interest me and provide a challenging goal.
 
-PS: Please be understanding. The English language is not my native language. If you find any bug or not clear words you can always do PR to [gatsby-starter-personal-blog](https://github.com/greglobinski/gatsby-starter-personal-blog), the repo contains the actual code of this demo.
+On the photography side I use **Canon** gear and shoot everything and anything. I lean towards natural light and landscape photography but the strobes and studio modifiers in my closet do not gather dust. Please reach out to me if you are interested in collaborating! Personal/artistic endeavours will always be pro-bono or close to it. Commercial work is on an individual basis.
+
+Finally, I'd like thank [greg lobinski](https://www.greglobinski.com) for stellar work he did creating the base code for this blog. It's dynamite and you should buy him a beer.
