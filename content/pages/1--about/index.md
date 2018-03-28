@@ -1,5 +1,6 @@
 ---
 title: Yo!
+menuTitle: About
 ---
 
 Hey you've reached my website! Welcome.
