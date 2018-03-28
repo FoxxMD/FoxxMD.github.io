@@ -6,7 +6,8 @@ import config from "../../../content/meta/config";
 
 import GithubIcon from "../../images/svg-icons/github.svg";
 import FacebookIcon from "../../images/svg-icons/facebook.svg";
-import TwitterIcon from "../../images/svg-icons/twitter.svg";
+import SoundcloudIcon from "../../images/svg-icons/soundcloud.svg";
+import InstagramIcon from "../../images/svg-icons/instagram-logo.svg";
 
 const styles = theme => ({
   social: {
@@ -35,9 +36,10 @@ const Socialcons = props => {
   const { classes } = props;
   const items = config.authorSocialLinks;
   const icons = {
-    twitter: TwitterIcon,
     facebook: FacebookIcon,
-    github: GithubIcon
+    github: GithubIcon,
+    instagram: InstagramIcon,
+    soundcloud: SoundcloudIcon
   };
 
   return (
