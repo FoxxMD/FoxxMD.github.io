@@ -1,20 +1,29 @@
 ---
-title: Other GatsbyJs starters
-menuTitle: My starters
+title: Coding, Projects, and Work
+menuTitle: Coding and Work
 ---
 
-[Personal**Blog**](https://github.com/greglobinski/gatsby-starter-personal-blog) is not my first [GatsbyJs](https://www.gatsbyjs.org/) starter.
+My coding interests outside of work few but I create some fun stuff every once in awhile.
 
-![Simple**Landing**](./gatsby-starter-simple-landing.png)
+## Websites
 
-### SimpleLanding
+### [HasMexicoPaidForTheWallYet.com](http://hasmexicopaidforthewallyet.com)
 
-As the name says, it is a simple landing page.
-[Demo](https://gatsby-starter-simple-landing.greglobinski.com/) | [Github repo](https://github.com/greglobinski/gatsby-starter-simple-landing)
+A simple site to let you know if Mexico has paid for the border wall yet.
 
-![Styled**Blog**](./gatsby-styled-blog-starter.jpg)
+### [DoYouRemember.Today](http://www.doyouremember.today)
 
-### StyledBlog
+A tribute to Earth Wind, and Fire. On September 21st this site will display a special surprise but doesn't seem to care about any other day...
 
-That is my first Gatsby starter. It is a forefather of the starter's demo you are looking at now. It will not be develop or update any longer.
-[Demo](https://gsbs.greglobinski.com) | [Github repo](https://github.com/greglobinski/gatsby-styled-blog-starter)
+## Libraries/Open-Source
+
+* [intellij-jvm-options-explained](https://github.com/FoxxMD/intellij-jvm-options-explained) - A helpful primer for JVM options relevant to tweaking [Jetbrains](https://www.jetbrains.com/) IDE products. Thorough explanations of what options do and recommended values.
+* [laravel-elasticbeanstalk-queue-worker](https://github.com/FoxxMD/laravel-elasticbeanstalk-queue-worker) - Provides an easy way to deploy [Laravel](https://laravel.com/) projects as queue consumers using [supervisord](http://supervisord.org/) in [Amazon Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/) environments.
+* [laravel-elasticbeanstalk-cron](https://github.com/FoxxMD/laravel-elasticbeanstalk-cron) - An alternative to ELB (Elastic Beanstalk) cron management for Laravel projects where a selected leader instance runs the built-in Laravel scheduler.
+* [laravel-triaged-queues](https://github.com/Fulfillment-dot-com/laravel-triaged-queues) - An extension of [Laravel 5.1 Queues](https://laravel.com/docs/5.1/queues) that adds fallback hosts and extended beanstalkd functions.
+* [react-cowsay](https://github.com/FoxxMD/react-cowsay) - A simple [React](https://reactjs.org/) wrapper for [cowsay](https://github.com/bushmango/cowsay-browser), the configurable talking cow.
+* [dhl-ecommerce-api](dhl-ecommerce-api) - A PHP wrapper for HTTP communication with the [DHL eCommerce API](https://api.dhlglobalmail.com/docs/v1/)
+
+### Work
+
+Coming soon
