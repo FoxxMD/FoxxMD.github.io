@@ -6,27 +6,25 @@ import { setNavigatorPosition, setNavigatorShape } from "../state/store";
 import { featureNavigator } from "../utils/shared";
 import Seo from "../components/Seo";
 import Page from "../components/Page/";
+import Main from "../components/Main/";
 
 class Index extends React.Component {
   featureNavigator = featureNavigator.bind(this);
 
   componentWillMount() {
-    if (this.props.navigatorPosition === "is-featured") {
       this.props.setNavigatorPosition("is-aside");
       this.props.setNavigatorShape("closed");
-   }
   }
 
   render() {
     const { data } = this.props;
-    //debugger;
     const facebook = (((data || {}).site || {}).siteMetadata || {}).facebook;
 
     return (
-      <div>
+      <Main>
         <Page page={data.page} />
         <Seo facebook={facebook} />
-      </div>
+      </Main>
     );
   }
 }
