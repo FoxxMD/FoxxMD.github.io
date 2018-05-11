@@ -103,35 +103,36 @@ class Photos extends React.Component {
     const { data: { photos: { edges: images } } } = this.props;
     const { photoIndex }                          = this.state;
     
-    let caption = null;
+    let location = [];
     
     const exif = images[ photoIndex ].node.fields.exif;
     
     if(exif.location !== null) {
-      caption = exif.location;
+      location.push(exif.location);
     }
     
-    let hasAnyTechnical = false;
-    
-    caption = Object.keys( exif.technical ).reduce( ( acc, curr ) =>{
+    const tech = Object.keys( exif.technical ).reduce( ( acc, curr ) =>{
       
       if(exif.technical[ curr ] !== null) {
-        
-        if(hasAnyTechnical === false) {
-          hasAnyTechnical = true;
-          
-          if(acc !== null) {
-            return acc.concat( ` -- ${curr}: ${exif.technical[ curr ]}` );
-          }
-          return `${curr}: ${exif.technical[ curr ]}`;
-        }
-        
-        return acc.concat( ` || ${curr}: ${exif.technical[ curr ]}` );
+       switch(curr) {
+         case 'fstop':
+           acc.push(`f/${exif.technical[ curr ]}`);
+           break;
+         case 'focalLength':
+           acc.push(`${exif.technical[ curr ]} mm`);
+           break;
+         case 'model':
+           acc.push( `${exif.technical[ curr ]}` );
+           break;
+         case 'iso':
+           acc.push( `ISO ${exif.technical[ curr ]}` );
+           break;
+       }
       }
       return acc;
-    }, caption );
+    }, [] );
     
-    return caption;
+    return location.concat(tech).join(' || ');
   };
   
   render(){
@@ -241,6 +242,7 @@ export const guery = graphql`
                 title
                 location
                 categories
+                caption
                 technical {
                   iso
                   model
