@@ -8,6 +8,12 @@ const { store } = require(`./node_modules/gatsby/dist/redux`);
 const fastExif = require('fast-exif');
 const get = require('lodash/get');
 
+// XP values are encoded as byte arrays
+// https://stackoverflow.com/a/46681758/1469797
+function parseByteArray(arr) {
+ return String.fromCharCode.apply(null, arr);
+}
+
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
   if (node.internal.type === `MarkdownRemark`) {
@@ -29,18 +35,23 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       fastExif.read(absolutePath)
         .then((exifData) => {
           const title        = get( exifData, [ 'image', 'ImageDescription' ], null );
-          const location     = get( exifData, [ 'image', 'DocumentName' ], null );
-          const categoryData = get( exifData, [ 'exif', 'ImageHistory' ], null );
-          const categories   = categoryData === null ? [ 'uncategorized' ] : categoryData.split( ',' );
+          const locationData = get( exifData, [ 'image', 'XPSubject' ], null );
+          const location     = (locationData === null ? null : parseByteArray( locationData ));
+          const categoryData = get( exifData, [ 'image', 'XPKeywords' ], null );
+          const categories   = (categoryData === null ? [ 'uncategorized' ] : parseByteArray( categoryData ).split( ';' ));
           const iso          = get( exifData, [ 'exif', 'ISO' ], null );
           const model        = get( exifData, [ 'exif', 'LensModel' ], null );
           const fstop        = get( exifData, [ 'exif', 'FNumber' ], null );
           const focalLength  = get( exifData, [ 'exif', 'FocalLength' ], null );
+          //const date    = get( exifData, [ 'exif', 'DateTimeOriginal' ], '' );
+          // blah
+          const captionData  = get( exifData, [ 'image', 'XPComment' ], null );
+          const caption      = (captionData === null ? '' : parseByteArray( captionData ));
 
               createNodeField({
                 node,
                 name: 'exif',
-                value: {title, location, categories, technical: {iso, model, fstop, focalLength}}
+                value: {title, location, categories, caption, technical: {iso, model, fstop, focalLength}}
               });
         })
         .catch((err) => console.error(err));
