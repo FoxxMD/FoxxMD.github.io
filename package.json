@@ -87,6 +87,7 @@
     "material-ui": "1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.17",
     "moment": "^2.22.1",
+    "prando": "^3.0.3",
     "react-custom-scrollbars": "^4.2.1",
     "react-disqus-comments": "^1.1.1",
     "react-facebook": "^4.2.1",
@@ -107,6 +108,7 @@
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
+    "reselect": "^3.0.1",
     "screenfull": "^3.3.2",
     "styled-components": "^3.2.3"
   }
