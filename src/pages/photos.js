@@ -107,12 +107,14 @@ class Photos extends React.Component {
     let attributes = [];
     
     const exif = images[ photoIndex ].node.fields.exif;
-    
-    if(exif.location !== null) {
-      attributes.push( exif.location );
-    }
+  
+    // date before location makes more sense because the file is more likely to have a date than location
+    // so it makes browsing and looking at metadata on caption more consistent
     if(exif.date !== null) {
       attributes.push( moment( exif.date ).year() );
+    }
+    if(exif.location !== null) {
+      attributes.push( exif.location );
     }
     
     const tech = Object.keys( exif.technical ).reduce( ( acc, curr ) =>{
@@ -144,6 +146,9 @@ class Photos extends React.Component {
     const { photoIndex, isOpen }                                     = this.state;
     
     const images = category === 'all photos' ? edges : edges.filter((edge) => edge.node.fields.exif.categories.includes(category));
+    
+    // TODO sort by rating and then randomize order based on some hash
+    //node.fields.exif.rating
     
     const mainSrc    = images[ photoIndex ].node.original.src;
     const nextSrc    = photoIndex + 1 === images.length ? null : images[ (photoIndex + 1)].node.original.src;
