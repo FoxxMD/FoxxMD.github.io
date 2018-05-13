@@ -86,6 +86,7 @@
     "lodash": "^4.17.5",
     "material-ui": "1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.17",
+    "moment": "^2.22.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-disqus-comments": "^1.1.1",
     "react-facebook": "^4.2.1",

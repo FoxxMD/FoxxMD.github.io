@@ -6,6 +6,7 @@ import { compose } from 'recompose';
 import Lightbox from 'react-image-lightbox';
 import Img from "gatsby-image";
 import styled from 'styled-components';
+import moment from 'moment';
 
 import Main from "../components/Main/";
 import ListHeader from "../components/Navigator/ListHeader";
@@ -103,36 +104,39 @@ class Photos extends React.Component {
     const { data: { photos: { edges: images } } } = this.props;
     const { photoIndex }                          = this.state;
     
-    let location = [];
+    let attributes = [];
     
     const exif = images[ photoIndex ].node.fields.exif;
     
     if(exif.location !== null) {
-      location.push(exif.location);
+      attributes.push( exif.location );
+    }
+    if(exif.date !== null) {
+      attributes.push( moment( exif.date ).year() );
     }
     
     const tech = Object.keys( exif.technical ).reduce( ( acc, curr ) =>{
       
       if(exif.technical[ curr ] !== null) {
-       switch(curr) {
-         case 'fstop':
-           acc.push(`f/${exif.technical[ curr ]}`);
-           break;
-         case 'focalLength':
-           acc.push(`${exif.technical[ curr ]} mm`);
-           break;
-         case 'model':
-           acc.push( `${exif.technical[ curr ]}` );
-           break;
-         case 'iso':
-           acc.push( `ISO ${exif.technical[ curr ]}` );
-           break;
-       }
+        switch(curr) {
+          case 'fstop':
+            acc.push( `f/${exif.technical[ curr ]}` );
+            break;
+          case 'focalLength':
+            acc.push( `${exif.technical[ curr ]} mm` );
+            break;
+          case 'model':
+            acc.push( `${exif.technical[ curr ]}` );
+            break;
+          case 'iso':
+            acc.push( `ISO ${exif.technical[ curr ]}` );
+            break;
+        }
       }
       return acc;
     }, [] );
     
-    return location.concat(tech).join(' || ');
+    return attributes.concat( tech ).join( ' || ' );
   };
   
   render(){
@@ -243,6 +247,8 @@ export const guery = graphql`
                 location
                 categories
                 caption
+                rating
+                date
                 technical {
                   iso
                   model

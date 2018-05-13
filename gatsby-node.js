@@ -43,15 +43,16 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
           const model        = get( exifData, [ 'exif', 'LensModel' ], null );
           const fstop        = get( exifData, [ 'exif', 'FNumber' ], null );
           const focalLength  = get( exifData, [ 'exif', 'FocalLength' ], null );
-          //const date    = get( exifData, [ 'exif', 'DateTimeOriginal' ], '' );
-          // blah
+          const dateData     = get( exifData, [ 'exif', 'DateTimeOriginal' ], null );
+          const date         = dateData !== null ? dateData.toISOString() : null;
           const captionData  = get( exifData, [ 'image', 'XPComment' ], null );
           const caption      = (captionData === null ? '' : parseByteArray( captionData ));
+          const rating       = get( exifData, [ 'image', 'Rating' ], 0 );
 
               createNodeField({
                 node,
                 name: 'exif',
-                value: {title, location, categories, caption, technical: {iso, model, fstop, focalLength}}
+                value: {title, location, categories, caption, rating, date, technical: {iso, model, fstop, focalLength}}
               });
         })
         .catch((err) => console.error(err));
