@@ -7,6 +7,8 @@ import Lightbox from 'react-image-lightbox';
 import Img from "gatsby-image";
 import styled from 'styled-components';
 import moment from 'moment';
+import Prando from 'prando';
+import {createSelector} from 'reselect';
 
 import Main from "../components/Main/";
 import ListHeader from "../components/Navigator/ListHeader";
@@ -77,6 +79,67 @@ class Photos extends React.Component {
       isOpen: false,
       photoIndex: 0
     };
+    
+    this.getImageNodes = createSelector(
+      p => p.data.photos.edges,
+      p => p.category,
+      (edges, category) => {
+        // filter nodes down to only those with the active category
+        const imageNodes = category === 'all photos' ? edges : edges.filter((edge) => edge.node.fields.exif.categories.includes(category));
+        
+        // sort nodes into an object of arrays with keys based on the rating of all images in array
+        const imageNodesSortedByRating = imageNodes.reduce((acc, imageNode) => {
+          const rating = imageNode.node.fields.exif.rating;
+          if(acc[rating] === undefined) {
+            acc[rating] = [];
+          }
+          acc[rating].push(imageNode);
+          return acc;
+        }, {})
+        
+        // end goal is that 5-star rating photos are shown before 4-rating photos, before n-1 rating photos...
+        // and then within each group of photos the order is psuedo-random --
+        // based on a seed created from the cumulative hashed strings of each files absolute path in the system
+        // so that order doesn't change if metadata changes but only when filenames change or files are added/deleted
+        
+        // end value is an object with keys that the sequential position of photos on page and value is the image node
+        const keyedImagesObject = Object.keys(imageNodesSortedByRating)
+          .sort((a,b) => a - b).reverse() // sort ratings numerically, then reverse (so 5,4,3,2,1,0 = no rating, default)
+          .reduce((acc, rating) => {
+          
+          const imagesNodesAtCurrentRating = imageNodesSortedByRating[rating];
+          
+          // seed an rng using a concatenated string of all hashes from a rating set
+          let rng = new Prando(imagesNodesAtCurrentRating.reduce((hashedString, im) => hashedString.concat(im.node.fields.exif.hash.toString()), ''));
+          
+          // min is the reduction's current length EX 4 5-star ratings and we are current on 4-star set then min = 5
+          const min = Object.keys(acc).length+1;
+          
+          // max is the addition of min and the length of the current set EX 4 5-star ratings and we are current on 4-star set with 7 then max = 12
+          const max = imagesNodesAtCurrentRating.length + min;
+          
+          // initial position from rng
+          let position = rng.nextInt(min, max);
+          
+          for(let imageNode of imagesNodesAtCurrentRating) { // iterate through each node in set
+            
+            while(acc[position] !== undefined) { // loop while any position in reduction is occupied (has already been filled by previous node in for loop)
+              position = rng.nextInt(min, max); // if it is filled generate new position
+            }
+            acc[position] = imageNode; // once an unfilled position is found, then fill it
+          }
+          return acc; // finally all positions are filled for the current set
+        }, {});
+  
+        // then get keys and push to an array (should be in sequential order already IE key = index of Object.keys())
+        const sortedImageNodes = Object.keys(keyedImagesObject).reduce((acc, key) => {
+          acc.push(keyedImagesObject[key]);
+          return acc;
+        }, []);
+        
+        return sortedImageNodes;
+      }
+    )
   }
   
   componentDidMount(){
@@ -101,13 +164,13 @@ class Photos extends React.Component {
   };
   
   getCaption = () =>{
-    const { data: { photos: { edges: images } } } = this.props;
-    const { photoIndex }                          = this.state;
+    const { photoIndex } = this.state;
+    const images         = this.getImageNodes( this.props );
     
     let attributes = [];
     
     const exif = images[ photoIndex ].node.fields.exif;
-  
+    
     // date before location makes more sense because the file is more likely to have a date than location
     // so it makes browsing and looking at metadata on caption more consistent
     if(exif.date !== null) {
@@ -125,7 +188,9 @@ class Photos extends React.Component {
             acc.push( `f/${exif.technical[ curr ]}` );
             break;
           case 'focalLength':
-            acc.push( `${exif.technical[ curr ]} mm` );
+            if(exif.technical[ 'model' ] !== null) {
+              acc.push( `${exif.technical[ curr ]} mm` );
+            }
             break;
           case 'model':
             acc.push( `${exif.technical[ curr ]}` );
@@ -142,20 +207,16 @@ class Photos extends React.Component {
   };
   
   render(){
-    const { data: { photos: { edges } }, classes, category } = this.props;
+    const { classes, category } = this.props;
     const { photoIndex, isOpen }                                     = this.state;
     
-    const images = category === 'all photos' ? edges : edges.filter((edge) => edge.node.fields.exif.categories.includes(category));
+    const imageNodes = this.getImageNodes(this.props);
+    const mainSrc    = imageNodes[ photoIndex ].node.original.src;
+    const nextSrc    = photoIndex + 1 === imageNodes.length ? null : imageNodes[ (photoIndex + 1)].node.original.src;
+    const prevSrc    = photoIndex - 1 < 0 ? null : imageNodes[ (photoIndex - 1) ].node.original.src;
+    const imageTitle = imageNodes[ photoIndex ].node.fields.exif.title === null ? 'Untitled' : imageNodes[ photoIndex ].node.fields.exif.title;
     
-    // TODO sort by rating and then randomize order based on some hash
-    //node.fields.exif.rating
-    
-    const mainSrc    = images[ photoIndex ].node.original.src;
-    const nextSrc    = photoIndex + 1 === images.length ? null : images[ (photoIndex + 1)].node.original.src;
-    const prevSrc    = photoIndex - 1 < 0 ? null : images[ (photoIndex - 1) ].node.original.src;
-    const imageTitle = images[ photoIndex ].node.fields.exif.title === null ? 'Untitled' : images[ photoIndex ].node.fields.exif.title;
-    
-    const children = images.map( ( node, index ) =>{
+    const children = imageNodes.map( ( node, index ) =>{
       return (<BoxyDiv onClick={() => this.openLightbox( index )} key={index}><Img resolutions={node.node.resolutions}/></BoxyDiv>);
     } );
     
@@ -176,12 +237,12 @@ class Photos extends React.Component {
             onCloseRequest={() => this.setState( { isOpen: false } )}
             onMovePrevRequest={() =>
               this.setState( {
-                photoIndex: (photoIndex + images.length - 1) % images.length,
+                photoIndex: (photoIndex + imageNodes.length - 1) % imageNodes.length,
               } )
             }
             onMoveNextRequest={() =>
               this.setState( {
-                photoIndex: (photoIndex + 1) % images.length,
+                photoIndex: (photoIndex + 1) % imageNodes.length,
               } )
             }
           />
@@ -238,7 +299,7 @@ export const guery = graphql`
               srcSet,
               sizes
             },
-            resolutions(width: 200) {
+            resolutions(width: 300) {
             src,
             srcSet,
             width,
@@ -254,6 +315,7 @@ export const guery = graphql`
                 caption
                 rating
                 date
+                hash
                 technical {
                   iso
                   model
