@@ -7,6 +7,10 @@ My coding interests outside of work few but I create some fun stuff every once i
 
 ## Websites
 
+### [RedditData.live](http://redditdata.live)
+
+A live visualization of new reddit posts powered by [pushshift.io](https://pushshift.io), built with [React](https://reactjs.org), and inspired by [Bitlisten](https://www.bitlisten.com).   
+
 ### [HasMexicoPaidForTheWallYet.com](http://hasmexicopaidforthewallyet.com)
 
 A simple site to let you know if Mexico has paid for the border wall yet.
@@ -23,7 +27,8 @@ A tribute to Earth Wind, and Fire. On September 21st this site will display a sp
 * [laravel-triaged-queues](https://github.com/Fulfillment-dot-com/laravel-triaged-queues) - An extension of [Laravel 5.1 Queues](https://laravel.com/docs/5.1/queues) that adds fallback hosts and extended beanstalkd functions.
 * [react-cowsay](https://github.com/FoxxMD/react-cowsay) - A simple [React](https://reactjs.org/) wrapper for [cowsay](https://github.com/bushmango/cowsay-browser), the configurable talking cow.
 * [dhl-ecommerce-api](dhl-ecommerce-api) - A PHP wrapper for HTTP communication with the [DHL eCommerce API](https://api.dhlglobalmail.com/docs/v1/)
+* [react-interpunct](https://github.com/FoxxMD/react-interpunct) - React component to visibly display whitespace characters
 
-### Work
+### Publicly Available Work
 
-Coming soon
+* [Fulfillment.com API](https://fulfillment.github.io/api) (2014-Present) - Lead developer behind the public and private API set for [Fulfillment.com](https://fulfillment.com), a global [3PL](https://en.wikipedia.org/wiki/Third-party_logistics) fulfillment house.
